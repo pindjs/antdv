@@ -1,5 +1,5 @@
 import { Button } from 'ant-design-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent } from 'vue-demi'
 import { useOperation, usePrefix } from '../../hooks'
 import { IconWidget } from '../IconWidget'

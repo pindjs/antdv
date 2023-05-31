@@ -1,8 +1,8 @@
 import { connect, mapProps, h, mapReadPretty } from '@formily/vue'
 import { defineComponent } from '@vue/composition-api'
-import { PreviewText } from '@formily/antdv'
+import { PreviewText } from '@pind/antdv'
 import { Select as ElSelect, Option as ElOption } from 'ant-design-vue'
-import { resolveComponent } from '@formily/antdv/esm/__builtins__'
+import { resolveComponent } from '@pind/antdv/esm/__builtins__'
 import type {
   Select as ElSelectProps,
   Option as ElOptionProps,

@@ -1,11 +1,11 @@
-import { Password as FormilyPassword } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { Password as FormilyPassword } from '@pind/antdv'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { merge } from '@formily/shared'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { VueComponent } from '@formily/vue'
 
 export const Password: DnFC<VueComponent<typeof FormilyPassword>> =

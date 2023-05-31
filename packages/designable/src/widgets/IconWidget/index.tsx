@@ -11,7 +11,7 @@ import {
   ref,
   unref,
 } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import cls from 'classnames'
 import { cloneElement, isVNode, useStyle } from '../../shared/util'
@@ -45,7 +45,7 @@ const __IconWidgetInner = defineComponent({
     infer: { type: [String, Function, Object] },
     size: { type: [Number, String] },
   },
-  setup(props: IIconWidgetProps, { attrs: _attrs, listeners, emit }) {
+  setup(props, { attrs: _attrs, listeners, emit }) {
     const themeRef = useTheme()
     const IconContextRef: Ref<IconProviderProps> = useContext(IconSymbol)
     const registry = useRegistry()

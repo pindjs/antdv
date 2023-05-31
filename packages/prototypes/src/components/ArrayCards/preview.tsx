@@ -5,11 +5,11 @@ import {
   TreeNodeWidget,
   DroppableWidget,
   useNodeIdProps,
-} from '@formily/antdv-designable'
-import { ArrayBase, Space } from '@formily/antdv'
+} from '@pind/antdv-designable'
+import { ArrayBase, Space } from '@pind/antdv'
 import { observer } from '@formily/reactive-vue'
 import cls from 'classnames'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent } from 'vue-demi'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import { uid } from '@designable/shared'
@@ -24,8 +24,8 @@ import { useDropTemplate } from '../../hooks'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { createArrayBehavior } from '../ArrayBase'
 import './styles.less'
-import type { ArrayBaseMixins } from '@formily/antdv'
-import type { DnFC } from '@formily/antdv-designable'
+import type { ArrayBaseMixins } from '@pind/antdv'
+import type { DnFC } from '@pind/antdv-designable'
 import type { Card as CardProps } from 'ant-design-vue'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')

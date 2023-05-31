@@ -58,11 +58,11 @@ export default {
         __dirname,
         '../../../../node_modules/ant-design-vue'
       ),
-      '@formily/antdv/esm/__builtins__': path.resolve(
+      '@pind/antdv/esm/__builtins__': path.resolve(
         __dirname,
         '../../../components/src/__builtins__/index.ts'
       ),
-      '@formily/antdv/lib/__builtins__': path.resolve(
+      '@pind/antdv/lib/__builtins__': path.resolve(
         __dirname,
         '../../../components/src/__builtins__/index.ts'
       ),

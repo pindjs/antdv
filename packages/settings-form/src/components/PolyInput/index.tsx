@@ -1,5 +1,5 @@
 import { Button } from 'ant-design-vue'
-import { usePrefix, IconWidget } from '@formily/antdv-designable'
+import { usePrefix, IconWidget } from '@pind/antdv-designable'
 import cls from 'classnames'
 import './styles.less'
 import { defineComponent, ref, unref, watch } from 'vue-demi'

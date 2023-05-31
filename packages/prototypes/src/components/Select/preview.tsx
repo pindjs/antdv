@@ -1,10 +1,10 @@
-import { Select as FormilySelect } from '@formily/antdv'
+import { Select as FormilySelect } from '@pind/antdv'
 import { createBehavior, createResource } from '@designable/core'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 
 export const Select: DnFC<Vue.Component<any, any, any, typeof FormilySelect>> =
   composeExport(FormilySelect, {

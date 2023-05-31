@@ -23,7 +23,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, Field } from '@formily/vue'
-import { FormItem, Radio, Submit } from '@formily/antdv'
+import { FormItem, Radio, Submit } from '@pind/antdv'
 
 const form = createForm()
 

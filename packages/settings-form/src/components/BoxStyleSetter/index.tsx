@@ -1,5 +1,5 @@
 import { useField, FragmentComponent } from '@formily/vue'
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@pind/antdv-designable'
 import cls from 'classnames'
 import { defineComponent, unref } from 'vue-demi'
 import { uid } from '@formily/shared'

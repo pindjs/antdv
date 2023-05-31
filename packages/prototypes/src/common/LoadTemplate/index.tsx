@@ -1,4 +1,4 @@
-import { NodeActionsWidget } from '@formily/antdv-designable'
+import { NodeActionsWidget } from '@pind/antdv-designable'
 import { defineComponent } from 'vue-demi'
 import type { VNode, CSSProperties } from '@vue/runtime-dom'
 import type { VueComponent } from '@formily/vue'

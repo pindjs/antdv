@@ -63,7 +63,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { Field, FormProvider } from '@formily/vue'
-import { FormItem, TreeSelect, Submit } from '@formily/antdv'
+import { FormItem, TreeSelect, Submit } from '@pind/antdv'
 
 const form = createForm()
 

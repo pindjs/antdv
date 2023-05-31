@@ -7,10 +7,10 @@ import {
   DroppableWidget,
   TreeNodeWidget,
   useSelection,
-} from '@formily/antdv-designable'
+} from '@pind/antdv-designable'
 import { toArr } from '@formily/shared'
 import { defineComponent, nextTick, ref } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { uid } from '@designable/shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { useDropTemplate } from '../../hooks'
@@ -18,7 +18,7 @@ import { createVoidFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { matchComponent } from '../../shared'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { Collapse as CollapseProps } from 'ant-design-vue'
 
 const parseCollapse = (parent: TreeNode) => {

@@ -6,7 +6,7 @@ import { observer } from '@formily/reactive-vue'
 import cls from 'classnames'
 import './styles.less'
 import { defineComponent, provide, ref, toRef } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { TreeNodeSymbol, DesignerComponentsSymbol } from '../../context'
 import type { IDesignerComponents } from '../../types'
 

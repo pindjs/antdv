@@ -9,20 +9,16 @@ import {
   h as CreateElement,
 } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { FormItem } from '@formily/antdv'
+import { FormItem } from '@pind/antdv'
 import { each, reduce } from '@formily/shared'
 import { createBehavior } from '@designable/core'
-import {
-  useComponents,
-  useDesigner,
-  useTreeNode,
-} from '@formily/antdv-designable'
+import { useComponents, useDesigner, useTreeNode } from '@pind/antdv-designable'
 import { isArr, isFn, isStr } from '@designable/shared'
 import { defineComponent } from '@vue/composition-api'
-import { composeExport } from '@formily/antdv/lib/__builtins__'
+import { composeExport } from '@pind/antdv/lib/__builtins__'
 import { Container } from '../../common/Container'
 import { AllLocales } from '../../locales'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { ISchema } from '@formily/vue'
 
 Schema.silent(true)

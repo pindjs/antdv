@@ -48,7 +48,7 @@ import {
   FormItem,
   FormButtonGroup,
   Submit,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const form = createForm()
 const fields = createSchemaField({ components: { Input, Select, FormItem } })

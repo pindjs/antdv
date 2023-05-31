@@ -11,7 +11,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
-import { Form, FormItem, Cascader, Submit } from '@formily/antdv'
+import { Form, FormItem, Cascader, Submit } from '@pind/antdv'
 import { action } from '@formily/reactive'
 import axios from 'axios'
 

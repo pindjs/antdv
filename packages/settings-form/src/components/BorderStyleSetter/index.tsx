@@ -1,4 +1,4 @@
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@pind/antdv-designable'
 import { camelCase } from '@formily/shared'
 import { observable } from '@formily/reactive'
 import { useField, Field, FragmentComponent } from '@formily/vue'

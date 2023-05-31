@@ -1,4 +1,4 @@
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@pind/antdv-designable'
 import { useField, FragmentComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import cls from 'classnames'

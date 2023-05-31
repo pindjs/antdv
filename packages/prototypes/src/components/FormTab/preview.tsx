@@ -9,8 +9,8 @@ import {
   TreeNodeWidget,
   DroppableWidget,
   useSelection,
-} from '@formily/antdv-designable'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+} from '@pind/antdv-designable'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent, nextTick, ref } from 'vue-demi'
 import { uid } from '@designable/shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
@@ -20,7 +20,7 @@ import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { matchComponent } from '../../shared'
 import type { VueComponent } from '@formily/vue'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { Tabs as TabsProps } from 'ant-design-vue'
 
 const parseTabs = (parent: TreeNode) => {

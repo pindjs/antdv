@@ -21,7 +21,7 @@
 import { defineComponent, onMounted, ref } from 'vue-demi'
 import { loadInitialSchema, saveSchema } from '../service'
 import { GlobalRegistry } from '@designable/core'
-import { useDesigner, useTree } from '@formily/antdv-designable'
+import { useDesigner, useTree } from '@pind/antdv-designable'
 
 function useI18n() {
   const language = ref(

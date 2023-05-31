@@ -1,4 +1,4 @@
-import type { ISchema } from '@formily,vue'
+import type { ISchema } from '@formily/vue'
 
 export const FormTab: ISchema & { TabPane?: ISchema } = {
   type: 'object',

@@ -104,7 +104,7 @@ import {
   Submit,
   Space,
   FormButtonGroup,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const form = createForm()
 

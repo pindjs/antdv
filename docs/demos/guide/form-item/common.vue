@@ -403,7 +403,7 @@ import {
   DatePicker,
   FormLayout,
   TimePicker,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const SuccessIcon = {
   functional: true,

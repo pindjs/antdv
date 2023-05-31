@@ -28,7 +28,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "@formily/antdv-renderer",
+    "name": "@pind/antdv-renderer",
     "version": "1.0.0-alpha.0",
     "license": "MIT",
     "main": "lib",
@@ -78,10 +78,10 @@ npm manifest:
     "devDependencies": {
       "@babel/preset-typescript": "^7.1.0",
       "@designable/core": "1.0.0-beta.25",
-      "@formily/antdv-setters": "1.0.0-alpha.0",
+      "@pind/antdv-setters": "1.0.0-alpha.0",
       "@designable/formily-transformer": "1.0.0-beta.25",
       "@designable/shared": "1.0.0-beta.25",
-      "@formily/antdv": "^2.0.0",
+      "@pind/antdv": "^2.0.0",
       "@formily/reactive": "^2.0.0",
       "@formily/reactive-vue": "^2.0.0",
       "@formily/shared": "^2.0.0",

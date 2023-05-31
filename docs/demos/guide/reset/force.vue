@@ -32,7 +32,7 @@ import {
   FormButtonGroup,
   FormItem,
   Input,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const fields = createSchemaField({
   components: {

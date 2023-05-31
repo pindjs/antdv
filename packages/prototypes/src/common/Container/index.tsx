@@ -1,4 +1,4 @@
-import { DroppableWidget } from '@formily/antdv-designable'
+import { DroppableWidget } from '@pind/antdv-designable'
 import type { VueComponent } from '@formily/vue'
 import './styles.less'
 import { defineComponent } from 'vue-demi'

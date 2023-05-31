@@ -1,6 +1,6 @@
 import cls from 'classnames'
-import { usePrefix, IconWidget, useContext } from '@formily/antdv-designable'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { usePrefix, IconWidget, useContext } from '@pind/antdv-designable'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent, computed, provide } from 'vue-demi'
 import './styles.less'
 

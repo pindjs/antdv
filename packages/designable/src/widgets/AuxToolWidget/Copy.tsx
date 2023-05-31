@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Button } from 'ant-design-vue'
 import { defineComponent } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { useStyle } from '../../shared'
 import { IconWidget } from '../IconWidget'
 import { useOperation, usePrefix } from '../../hooks'

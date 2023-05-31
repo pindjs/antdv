@@ -1,6 +1,4 @@
-import type { Ref } from 'vue-demi'
 import { defineComponent, ref, computed } from 'vue-demi'
-import type { GeneralField, FieldDisplayTypes, ArrayField } from '@formily/core'
 import {
   useField,
   useFieldSchema,
@@ -10,13 +8,15 @@ import {
 } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { isArr, isBool } from '@formily/shared'
+import { Table, Pagination, Select, Badge } from 'ant-design-vue'
 import { ArrayBase } from '../array-base'
 import { stylePrefix } from '../__builtins__/configs'
 import { composeExport } from '../__builtins__/shared'
+import { Space } from '../space'
 import type { Schema } from '@formily/json-schema'
 import type { VNode } from 'vue'
-import { Table, Pagination, Select, Badge } from 'ant-design-vue'
-import { Space } from '../space'
+import type { GeneralField, FieldDisplayTypes, ArrayField } from '@formily/core'
+import type { Ref } from 'vue-demi'
 import type { Table as TableProps } from 'ant-design-vue/types/table/table'
 import type { Column as ColumnProps } from 'ant-design-vue/types/table/column'
 import type { Pagination as PaginationProps } from 'ant-design-vue/types/pagination'

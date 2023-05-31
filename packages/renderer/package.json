@@ -1,5 +1,5 @@
 {
-  "name": "@formily/antdv-renderer",
+  "name": "@pind/antdv-renderer",
   "version": "1.0.0-alpha.0",
   "license": "MIT",
   "main": "lib",
@@ -55,8 +55,8 @@
     "@designable/core": "^1.0.0-beta.25",
     "@designable/formily-transformer": "^1.0.0-beta.25",
     "@designable/shared": "1.0.0-beta.25",
-    "@formily/antdv": "^1.0.0-alpha.8",
-    "@formily/antdv-setters": "^1.0.0-alpha.0",
+    "@pind/antdv": "^1.0.0-alpha.8",
+    "@pind/antdv-setters": "^1.0.0-alpha.0",
     "@formily/reactive": "^2.0.0",
     "@formily/reactive-vue": "^2.0.0",
     "@formily/shared": "^2.0.0",

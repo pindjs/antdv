@@ -1,5 +1,5 @@
 {
-  "name": "@formily/antdv-setters",
+  "name": "@pind/antdv-setters",
   "version": "1.0.0-alpha.0",
   "license": "MIT",
   "main": "src/index.ts",

@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import { FormGrid } from '@formily/antdv'
+import { FormGrid } from '@pind/antdv'
 
 const Cell = {
   functional: true,

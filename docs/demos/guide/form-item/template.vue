@@ -14,7 +14,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { Field } from '@formily/vue'
-import { Form, FormItem, Input, Submit } from '@formily/antdv'
+import { Form, FormItem, Input, Submit } from '@pind/antdv'
 
 const form = createForm()
 

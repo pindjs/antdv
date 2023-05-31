@@ -1,11 +1,11 @@
-import { composeExport } from '@formily/antdv/src/__builtins__'
+import { composeExport } from '@pind/antdv/src/__builtins__'
 import { defineComponent, onBeforeUnmount, watch, shallowRef } from 'vue-demi'
 import {
   TextWidget,
   IconWidget,
   usePrefix,
   useTheme,
-} from '@formily/antdv-designable'
+} from '@pind/antdv-designable'
 import { Tooltip } from 'ant-design-vue'
 import { parseExpression, parse } from '@babel/parser'
 import { isNum, uid } from '@designable/shared'

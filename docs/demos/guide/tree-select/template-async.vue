@@ -36,7 +36,7 @@
 <script>
 import { createForm, onFieldReact } from '@formily/core'
 import { Field, FormProvider } from '@formily/vue'
-import { FormItem, TreeSelect, Submit, Select } from '@formily/antdv'
+import { FormItem, TreeSelect, Submit, Select } from '@pind/antdv'
 import { action } from '@formily/reactive'
 
 const useAsyncDataSource = (pattern, service) => {

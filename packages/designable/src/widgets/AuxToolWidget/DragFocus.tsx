@@ -1,6 +1,6 @@
 import { observer } from '@formily/reactive-vue'
 import { Button } from 'ant-design-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent } from 'vue-demi'
 
 // Types

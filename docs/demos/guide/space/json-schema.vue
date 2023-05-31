@@ -19,7 +19,7 @@ import {
   Input,
   Submit,
   Space,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const { SchemaField } = createSchemaField({
   components: {

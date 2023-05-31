@@ -83,7 +83,7 @@ import {
   OutlineTreeWidget,
   ViewPanel,
   HistoryWidget,
-} from '@formily/antdv-designable'
+} from '@pind/antdv-designable'
 
 import {
   transformToSchema,
@@ -91,7 +91,7 @@ import {
 } from '@designable/formily-transformer'
 import { defineComponent } from '@vue/composition-api'
 import { createDesigner, GlobalRegistry } from '@designable/core'
-import { SettingsForm } from '@formily/antdv-settings-form'
+import { SettingsForm } from '@pind/antdv-settings-form'
 import {
   Form,
   Field,
@@ -117,8 +117,8 @@ import {
   FormLayout,
   FormGrid,
   InputNumber,
-} from '@formily/antdv-prototypes'
-import { Form as FormilyForm } from '@formily/antdv'
+} from '@pind/antdv-prototypes'
+import { Form as FormilyForm } from '@pind/antdv'
 
 GlobalRegistry.registerDesignerLocales({
   'zh-CN': {

@@ -1,5 +1,5 @@
 import { observer } from '@formily/reactive-vue'
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@pind/antdv-designable'
 import './styles.less'
 import { defineComponent } from 'vue-demi'
 import type { VNode } from 'vue-demi'

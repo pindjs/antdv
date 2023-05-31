@@ -76,7 +76,7 @@ import {
   Input,
   PreviewText,
   FormButtonGroup,
-} from '@formily/antdv'
+} from '@pind/antdv'
 import { Button } from 'ant-design-vue'
 
 const fields = createSchemaField({

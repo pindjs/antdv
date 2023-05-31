@@ -3,7 +3,7 @@ import { CursorStatus, ClosestPosition } from '@designable/core'
 import cls from 'classnames'
 import { defineComponent } from 'vue-demi'
 import { FragmentComponent as Fragment } from '@formily/vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { isNum } from '@designable/shared'
 import {
   useViewport,

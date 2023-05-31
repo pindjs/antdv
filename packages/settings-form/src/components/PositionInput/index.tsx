@@ -1,4 +1,4 @@
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@pind/antdv-designable'
 import cls from 'classnames'
 import './styles.less'
 import { defineComponent, ref, unref, watch } from 'vue-demi'

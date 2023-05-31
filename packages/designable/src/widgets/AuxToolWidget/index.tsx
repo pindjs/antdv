@@ -13,7 +13,7 @@ import { FreeSelection } from './FreeSelection'
 import { Cover } from './Cover'
 import { DashedBox } from './DashedBox'
 import './styles.less'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { computed, defineComponent, onBeforeUnmount } from 'vue-demi'
 
 const setCursorState = (contentWindow: Window, state: string) => {

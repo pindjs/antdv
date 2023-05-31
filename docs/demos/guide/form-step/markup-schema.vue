@@ -71,13 +71,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, FormConsumer, createSchemaField } from '@formily/vue'
-import {
-  FormItem,
-  FormStep,
-  FormButtonGroup,
-  Submit,
-  Input,
-} from '@formily/antdv'
+import { FormItem, FormStep, FormButtonGroup, Submit, Input } from '@pind/antdv'
 import { Button } from 'ant-design-vue'
 import Template from '../editable/template.vue'
 

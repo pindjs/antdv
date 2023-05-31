@@ -2,8 +2,8 @@
 // TODO::need 2 finish
 import { useField, Field, FragmentComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { usePrefix } from '@formily/antdv-designable'
-import { Select, Input } from '@formily/antdv'
+import { usePrefix } from '@pind/antdv-designable'
+import { Select, Input } from '@pind/antdv'
 import { FoldItem } from '../FoldItem'
 import { ColorInput } from '../ColorInput'
 import { BackgroundSizeInput } from '../SizeInput'

@@ -1,10 +1,10 @@
-import { Input as FormilyInput } from '@formily/antdv'
+import { Input as FormilyInput } from '@pind/antdv'
 import { createBehavior, createResource } from '@designable/core'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 
 export const Input: DnFC<Vue.Component<any, any, any, typeof FormilyInput>> =
   composeExport(FormilyInput, {

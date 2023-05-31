@@ -1,9 +1,9 @@
-# @formily/antdv-renderer
+# @pind/antdv-renderer
 
 > Formily Designable Settings Form
 
 ## 安装
 
 ```bash
-npm install @formily/antdv-renderer --save
+npm install @pind/antdv-renderer --save
 ```

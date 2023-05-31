@@ -15,7 +15,7 @@ import {
   Input,
   Editable,
   Switch,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const fields = createSchemaField({
   components: {

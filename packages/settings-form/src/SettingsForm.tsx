@@ -1,5 +1,5 @@
 import { createForm } from '@formily/core'
-import { Form as ElForm } from '@formily/antdv'
+import { Form as ElForm } from '@pind/antdv'
 import { observe } from '@formily/reactive'
 import {
   IconWidget,
@@ -9,7 +9,7 @@ import {
   usePrefix,
   useSelected,
   useWorkbench,
-} from '@formily/antdv-designable'
+} from '@pind/antdv-designable'
 import { Empty } from 'ant-design-vue'
 import cls from 'classnames'
 import './styles.less'

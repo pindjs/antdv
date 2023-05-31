@@ -77,7 +77,7 @@ import {
   DatePicker,
   Switch,
   InputNumber,
-} from '@formily/antdv'
+} from '@pind/antdv'
 
 const form = createForm()
 const fields = createSchemaField({

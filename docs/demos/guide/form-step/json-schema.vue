@@ -34,13 +34,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField, FormConsumer } from '@formily/vue'
-import {
-  FormItem,
-  FormStep,
-  FormButtonGroup,
-  Submit,
-  Input,
-} from '@formily/antdv'
+import { FormItem, FormStep, FormButtonGroup, Submit, Input } from '@pind/antdv'
 import { Button } from 'ant-design-vue'
 
 const { SchemaField } = createSchemaField({

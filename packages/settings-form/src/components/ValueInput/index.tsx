@@ -3,7 +3,7 @@
  * Todo: JSON、富文本，公式
  */
 import { Select } from 'ant-design-vue'
-import { InputNumber, Input } from '@formily/antdv'
+import { InputNumber, Input } from '@pind/antdv'
 import { defineComponent } from 'vue-demi'
 import { createPolyInput } from '../PolyInput'
 

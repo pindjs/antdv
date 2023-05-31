@@ -76,7 +76,7 @@ import {
   Input,
   DatePicker,
   Editable,
-} from '@formily/antdv'
+} from '@pind/antdv'
 import { Button } from 'ant-design-vue'
 
 const SchemaField = createSchemaField({

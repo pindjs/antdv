@@ -1,12 +1,12 @@
-import { FormGrid as FormilyGird } from '@formily/antdv'
+import { FormGrid as FormilyGird } from '@pind/antdv'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
   useTreeNode,
   useNodeIdProps,
   DroppableWidget,
-} from '@formily/antdv-designable'
+} from '@pind/antdv-designable'
 import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent } from 'vue-demi'
 import { FragmentComponent as Fragment, h as CreateElement } from '@formily/vue'
 import { LoadTemplate } from '../../common/LoadTemplate'
@@ -14,7 +14,7 @@ import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import type { VueComponent } from '@formily/vue'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import './styles.less'
 
 type formilyGrid = typeof FormilyGird

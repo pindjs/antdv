@@ -1,7 +1,7 @@
 import cls from 'classnames'
 import { defineComponent } from 'vue-demi'
 import { Input, Upload } from 'ant-design-vue'
-import { usePrefix, IconWidget, useContext } from '@formily/antdv-designable'
+import { usePrefix, IconWidget, useContext } from '@pind/antdv-designable'
 import { SettingsFormSymbol } from '../../shared/context'
 import './styles.less'
 

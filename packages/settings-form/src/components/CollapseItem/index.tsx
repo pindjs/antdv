@@ -1,6 +1,6 @@
 import { observer } from '@formily/reactive-vue'
 import { useField } from '@formily/vue'
-import { usePrefix, IconWidget } from '@formily/antdv-designable'
+import { usePrefix, IconWidget } from '@pind/antdv-designable'
 import cls from 'classnames'
 import './styles.less'
 import { defineComponent, ref } from 'vue-demi'

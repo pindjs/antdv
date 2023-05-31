@@ -1,10 +1,10 @@
-import { Checkbox as FormilyCheckbox } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { Checkbox as FormilyCheckbox } from '@pind/antdv'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { VueComponent } from '@formily/vue'
 
 export const Checkbox: DnFC<VueComponent<typeof FormilyCheckbox>> =

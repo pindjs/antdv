@@ -1,12 +1,12 @@
-import { FormItem } from '@formily/antdv'
+import { FormItem } from '@pind/antdv'
 import { useField, FragmentComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { observable } from '@formily/reactive'
-import { IconWidget, usePrefix } from '@formily/antdv-designable'
+import { IconWidget, usePrefix } from '@pind/antdv-designable'
 import cls from 'classnames'
 import './styles.less'
 import { defineComponent, ref, unref } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 
 const ExpandedMap = new Map<string, boolean>()
 

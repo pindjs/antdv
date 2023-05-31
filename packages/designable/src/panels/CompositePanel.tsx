@@ -1,6 +1,6 @@
 import { isValid } from '@designable/shared'
 import cls from 'classnames'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { FragmentComponent } from '@formily/vue'
 import {
   defineComponent,

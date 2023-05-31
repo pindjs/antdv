@@ -5,11 +5,11 @@ import {
   TreeNodeWidget,
   DroppableWidget,
   useNodeIdProps,
-} from '@formily/antdv-designable'
-import { ArrayBase } from '@formily/antdv'
+} from '@pind/antdv-designable'
+import { ArrayBase } from '@pind/antdv'
 import { observer } from '@formily/reactive-vue'
 import cls from 'classnames'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { defineComponent, getCurrentInstance, onMounted } from 'vue-demi'
 import { uid } from '@designable/shared'
 import { AllLocales } from '../../locales'
@@ -26,7 +26,7 @@ import {
 import { LoadTemplate } from '../../common/LoadTemplate'
 import './styles.less'
 import type { VueComponent } from '@formily/vue'
-import type { DnFC } from '@formily/antdv-designable'
+import type { DnFC } from '@pind/antdv-designable'
 import type { Table as TableProps } from 'ant-design-vue'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')

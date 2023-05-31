@@ -1,6 +1,6 @@
 import { reaction } from '@formily/reactive'
 import cls from 'classnames'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { computed, defineComponent, nextTick, ref, unref } from 'vue-demi'
 import { Button } from 'ant-design-vue'
 import { useDesigner, usePrefix, useViewport } from '../../hooks'

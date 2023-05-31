@@ -9,7 +9,7 @@ import {
   ref,
   unref,
 } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@pind/antdv/esm/__builtins__'
 import { NodeTitleWidget } from '../NodeTitleWidget'
 import { IconWidget } from '../IconWidget'
 import { useHover, useSelection, usePrefix } from '../../hooks'

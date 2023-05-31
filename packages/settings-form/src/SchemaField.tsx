@@ -1,5 +1,5 @@
 import { createSchemaField } from '@formily/vue'
-import * as ElementUI from '@formily/antdv'
+import * as ElementUI from '@pind/antdv'
 import {
   ColorInput,
   CollapseItem,

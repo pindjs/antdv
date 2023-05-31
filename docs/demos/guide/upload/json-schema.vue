@@ -11,7 +11,7 @@
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import { defineComponent } from '@vue/composition-api'
-import { Form, FormItem, Upload, Submit, FormButtonGroup } from '@formily/antdv'
+import { Form, FormItem, Upload, Submit, FormButtonGroup } from '@pind/antdv'
 import { Button, Icon } from 'ant-design-vue'
 
 const UploadButton = {

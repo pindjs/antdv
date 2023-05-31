@@ -1,9 +1,9 @@
-# @formily/antdv
+# @pind/antdv
 
 > Formily Component Adaptor
 
 ## Install
 
 ```bash
-npm install @formily/antdv --save
+npm install @pind/antdv --save
 ```

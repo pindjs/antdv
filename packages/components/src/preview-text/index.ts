@@ -1,29 +1,28 @@
-import { defineComponent, computed } from 'vue-demi'
-import { h, useField } from '@formily/vue'
+import { observer } from '@formily/reactive-vue'
 import { isArr, isValid } from '@formily/shared'
+import { h, useField } from '@formily/vue'
+import { Tag } from 'ant-design-vue'
+import type {
+  CascaderOptionType,
+  Cascader as CascaderProps,
+} from 'ant-design-vue/types/cascader'
+import type { DatePicker as DatePickerProps } from 'ant-design-vue/types/date-picker/date-picker'
+import type { RangePicker as RangePickerProps } from 'ant-design-vue/types/date-picker/range-picker'
+import type { Input as InputProps } from 'ant-design-vue/types/input/input'
+import type { Select as SelectProps } from 'ant-design-vue/types/select/select'
+import type { TimePicker as TimePickerProps } from 'ant-design-vue/types/time-picker'
+import { computed, defineComponent } from 'vue-demi'
+import { formatMomentValue } from '../__builtins__'
+import { stylePrefix } from '../__builtins__/configs'
 import {
+  composeExport,
   createContext,
   resolveComponent,
   useContext,
-  composeExport,
 } from '../__builtins__/shared'
-import { stylePrefix } from '../__builtins__/configs'
-import type { Input as InputProps } from 'ant-design-vue/types/input/input'
-import type { Select as SelectProps } from 'ant-design-vue/types/select/select'
-import type {
-  Cascader as CascaderProps,
-  CascaderOptionType,
-} from 'ant-design-vue/types/cascader'
-import type { TimePicker as TimePickerProps } from 'ant-design-vue/types/time-picker'
-import type { DatePicker as DatePickerProps } from 'ant-design-vue/types/date-picker/date-picker'
-import type { RangePicker as RangePickerProps } from 'ant-design-vue/types/date-picker/range-picker'
-
-import { Tag } from 'ant-design-vue'
-
 import { Space } from '../space'
-import { observer } from '@formily/reactive-vue'
+
 import type { Field } from '@formily/core'
-import { formatMomentValue } from '../__builtins__'
 
 const prefixCls = `${stylePrefix}-preview-text`
 const PlaceholderContext = createContext('N/A')
@@ -175,11 +174,7 @@ const Cascader = observer(
       const fieldRef = useField<Field>()
       const field = fieldRef.value
       const props = attrs as unknown as PreviewCascaderProps
-      const dataSource: any[] = field?.dataSource?.length
-        ? field.dataSource
-        : props?.options?.length
-        ? props.options
-        : []
+
       const placeholder = usePlaceholder()
       const getSelected = () => {
         return isArr(props.value) ? props.value : []
@@ -197,7 +192,7 @@ const Cascader = observer(
         }
       }
 
-      const getLabels = () => {
+      const getLabels = (dataSource: any) => {
         const selected = getSelected()
         if (!selected?.length) {
           return h(
@@ -223,6 +218,11 @@ const Cascader = observer(
       }
 
       return () => {
+        const dataSource: any[] = field?.dataSource?.length
+          ? field.dataSource
+          : props?.options?.length
+          ? props.options
+          : []
         return h(
           Space,
           {
@@ -230,7 +230,7 @@ const Cascader = observer(
             style: attrs.style,
           },
           {
-            default: () => getLabels(),
+            default: () => getLabels(dataSource),
           }
         )
       }

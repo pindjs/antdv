@@ -9,7 +9,7 @@
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import { action } from '@formily/reactive'
-import { Form, FormItem, Select, Submit, Reset } from '@formily/antdv'
+import { Form, FormItem, Select, Submit, Reset } from '@pind/antdv'
 
 const schema = {
   type: 'object',
