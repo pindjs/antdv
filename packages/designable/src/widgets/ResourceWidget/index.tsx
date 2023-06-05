@@ -1,4 +1,4 @@
-import { defineComponent, ref, unref } from 'vue-demi'
+import { defineComponent, ref, unref } from 'vue'
 import { isResourceHost, isResourceList } from '@designable/core'
 import { isFn } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'

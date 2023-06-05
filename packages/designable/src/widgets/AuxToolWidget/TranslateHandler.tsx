@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { useDesigner, usePrefix } from '../../hooks'
 import { IconWidget } from '../IconWidget'
 

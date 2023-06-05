@@ -1,6 +1,6 @@
 import { ScreenType } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { useScreen } from '../hooks'
 import {
   MobileSimulator,

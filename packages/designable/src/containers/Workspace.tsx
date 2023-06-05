@@ -1,4 +1,4 @@
-import { defineComponent, provide, ref, unref, computed } from 'vue-demi'
+import { defineComponent, provide, ref, unref, computed } from 'vue'
 import { FragmentComponent, h as CreateElment } from '@formily/vue'
 import { useDesigner } from '../hooks'
 import { WorkspaceSymbol } from '../context'

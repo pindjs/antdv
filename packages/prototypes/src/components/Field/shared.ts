@@ -2,7 +2,7 @@ import {
   ReactionsSetter,
   DataSourceSetter,
   ValidatorSetter,
-} from '@formily/antdv-setters'
+} from '@shebao/antdv-setters'
 import { FormItemSwitcher } from '../../common/FormItemSwitcher'
 import { AllSchemas } from '../../schemas'
 import type { ISchema } from '@formily/json-schema'

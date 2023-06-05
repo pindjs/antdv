@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue-demi'
+import { defineComponent, computed } from 'vue'
 import { Tag } from 'ant-design-vue'
 import { isArr, isValid } from '@formily/shared'
 import { observer } from '@formily/reactive-vue'

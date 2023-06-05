@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, Ref } from 'vue-demi'
+import type { ExtractPropTypes, PropType, Ref } from 'vue'
 
 export const monacoContainerProps = {
   width: {

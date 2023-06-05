@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { usePrefix } from '../../hooks'
 import { MobileBody } from './body'
 import './styles.less'

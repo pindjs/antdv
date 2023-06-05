@@ -1,8 +1,8 @@
 import { observer } from '@formily/reactive-vue'
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@shebao/antdv-designable'
 import './styles.less'
-import { defineComponent } from 'vue-demi'
-import type { VNode } from 'vue-demi'
+import { defineComponent } from 'vue'
+import type { VNode } from 'vue'
 
 export interface IHeaderProps {
   extra: VNode | null

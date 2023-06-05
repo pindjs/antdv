@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { isNum } from '@designable/shared'
 import {
   useDesigner,

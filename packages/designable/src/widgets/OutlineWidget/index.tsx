@@ -1,13 +1,13 @@
 // import React, { useRef, useLayoutEffect } from 'react'
-import cls from 'classnames'
-import { observer } from '@formily/reactive-vue'
-import { defineComponent, onMounted, provide, ref, unref } from 'vue-demi'
-import { useTree, usePrefix, useOutline, useWorkbench } from '../../hooks'
-import { useStyle } from '../../shared/util'
-import { OutlineTreeNode } from './OutlineNode'
-import { Insertion } from './Insertion'
-import { NodeSymbol } from './context'
 import type { Viewport } from '@designable/core'
+import { observer } from '@formily/reactive-vue'
+import cls from 'classnames'
+import { defineComponent, onMounted, provide, ref, unref } from 'vue'
+import { useOutline, usePrefix, useTree, useWorkbench } from '../../hooks'
+import { useStyle } from '../../shared/util'
+import { Insertion } from './Insertion'
+import { OutlineTreeNode } from './OutlineNode'
+import { NodeSymbol } from './context'
 
 // export interface IOutlineTreeWidgetProps {
 //   className?: string
@@ -69,7 +69,7 @@ import type { Viewport } from '@designable/core'
 export const OutlineTreeWidget = observer(
   defineComponent({
     props: ['renderActions', 'renderTitle', 'onClose'],
-    setup(props, { refs }) {
+    setup(props) {
       // { onClose, style, renderActions, renderTitle, className,
       const refInstance = ref<HTMLDivElement>(null)
       const prefixRef = usePrefix('outline-tree')
@@ -95,7 +95,6 @@ export const OutlineTreeWidget = observer(
       // TODO::响应式有bug
       onMounted(() => {
         const _outline = outline.value
-        refInstance.value = refs.ref as HTMLDivElement
         if (!workspaceId) return
         if (outlineRef.value && outlineRef.value !== _outline) {
           outlineRef.value.onUnmount()
@@ -115,7 +114,7 @@ export const OutlineTreeWidget = observer(
         if (!outline || !workspaceId) return null
         return (
           <div class={cls(prefix + '-container')} style={style}>
-            <div class={prefix + '-content'} ref="ref">
+            <div class={prefix + '-content'} ref={refInstance}>
               <OutlineTreeNode node={tree} workspaceId={workspaceId} />
               <div
                 class={prefix + '-aux'}

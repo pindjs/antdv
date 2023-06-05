@@ -1,4 +1,4 @@
-import { defineComponent, ref, watchEffect } from 'vue-demi'
+import { defineComponent, ref, watchEffect } from 'vue'
 import { Badge, Card, Collapse, Empty } from 'ant-design-vue'
 import {
   RecursionField,
@@ -12,7 +12,7 @@ import { toArr } from '@formily/shared'
 import { ArrayBase } from '../array-base'
 import { composeExport, usePrefixCls } from '../__builtins__'
 
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 import type { ArrayField } from '@formily/core'
 import type { ISchema } from '@formily/json-schema'
 import type { Collapse as CollapseProps } from 'ant-design-vue/types/collapse/collapse'

@@ -1,10 +1,9 @@
-import { defineComponent, provide, computed, watch } from 'vue-demi'
 import { each } from '@designable/shared'
-import { DesignerLayoutSymbol, useContext } from '../context'
-
-import type { PropType } from 'vue-demi'
-import type { IDesignerLayoutProps } from '../types'
+import type { PropType } from 'vue'
+import { computed, defineComponent, provide, ref, watch } from 'vue'
 import type { IDesignerLayoutContext } from '../context'
+import { DesignerLayoutSymbol, useContext } from '../context'
+import type { IDesignerLayoutProps } from '../types'
 
 export const Layout = defineComponent({
   name: 'DnLayout',
@@ -26,11 +25,9 @@ export const Layout = defineComponent({
       default: 'fixed',
     },
   },
-  setup(props, { slots = { default: () => null }, refs }) {
+  setup(props, { slots = { default: () => null } }) {
     const layoutRef = useContext<IDesignerLayoutContext>(DesignerLayoutSymbol)
-    const containerRef = computed<HTMLDivElement>(
-      () => refs.container as HTMLDivElement
-    )
+    const containerRef = ref<HTMLDivElement>()
 
     watch(containerRef, () => {
       if (containerRef.value) {
@@ -57,7 +54,7 @@ export const Layout = defineComponent({
 
     return () => (
       <div
-        ref="container"
+        ref={containerRef}
         class={{
           [`${props.prefixCls}app`]: true,
           [`${props.prefixCls}${props.theme}`]: props.theme,

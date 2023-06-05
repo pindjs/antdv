@@ -33,7 +33,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
-import { FormLayout, FormItem, Input, Select } from '@formily/antdv'
+import { FormLayout, FormItem, Input, Select } from '@shebao/antdv'
 
 const fields = createSchemaField({
   components: { FormLayout, FormItem, Input, Select },

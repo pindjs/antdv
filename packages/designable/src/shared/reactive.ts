@@ -4,12 +4,12 @@ import {
   watchEffect as VueWatchEffect,
   shallowRef,
   onBeforeUnmount,
-} from 'vue-demi'
+} from 'vue'
 import { autorun, reaction } from '@formily/reactive'
 
-import type { ComputedGetter, ComputedRef } from 'vue-demi'
+import type { ComputedGetter, ComputedRef } from 'vue'
 
-export * from 'vue-demi'
+export * from 'vue'
 
 export const computed = <T>(calc: ComputedGetter<T>): ComputedRef<T> => {
   const temp = shallowRef<T>()

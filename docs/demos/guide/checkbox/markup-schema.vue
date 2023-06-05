@@ -25,7 +25,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
-import { Form, FormItem, Checkbox, Submit } from '@formily/antdv'
+import { Form, FormItem, Checkbox, Submit } from '@shebao/antdv'
 
 const form = createForm()
 const fields = createSchemaField({

@@ -1,20 +1,12 @@
-import {
-  computed,
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  unref,
-} from 'vue-demi'
-import { Button } from 'ant-design-vue'
-import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
-import { NodeTitleWidget } from '../NodeTitleWidget'
-import { IconWidget } from '../IconWidget'
-
-import { useHover, useSelection, usePrefix } from '../../hooks'
-import type { PropType, Ref } from 'vue-demi'
 import type { TreeNode } from '@designable/core'
+import { observer } from '@formily/reactive-vue'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { Button } from 'ant-design-vue'
+import type { PropType, Ref } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, ref, unref } from 'vue'
+import { useHover, usePrefix, useSelection } from '../../hooks'
+import { IconWidget } from '../IconWidget'
+import { NodeTitleWidget } from '../NodeTitleWidget'
 
 const useMouseHover = <T extends Ref<HTMLElement>>(
   refInstance: T,
@@ -56,16 +48,14 @@ const SelectorComponent = observer(
   defineComponent({
     name: 'DnSelector',
     props: { node: { type: Object as PropType<TreeNode> } },
-    setup(props, { refs }) {
+    setup(props) {
       const expand = ref(false)
       const setExpand = (value) => {
         expand.value = value
       }
 
       const hoverRef = useHover()
-      const refInstance = computed<HTMLDivElement>(
-        () => refs.ref as HTMLDivElement
-      )
+      const refInstance = ref<HTMLDivElement>()
       const selectionRef = useSelection()
       const prefixRef = usePrefix('aux-selector')
 
@@ -132,7 +122,7 @@ const SelectorComponent = observer(
         }
 
         return (
-          <div ref="ref" class={prefixRef.value}>
+          <div ref={refInstance} class={prefixRef.value}>
             <Button
               class={prefixRef.value + '-title'}
               type="primary"

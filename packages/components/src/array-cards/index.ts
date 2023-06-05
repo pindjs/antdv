@@ -6,7 +6,7 @@ import { observer } from '@formily/reactive-vue'
 import type { ISchema } from '@formily/json-schema'
 import { ArrayBase } from '../array-base'
 import { composeExport, usePrefixCls } from '../__builtins__'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 
 const isAdditionComponent = (schema: ISchema) => {
   return schema['x-component']?.indexOf('Addition') > -1

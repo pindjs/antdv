@@ -1,17 +1,10 @@
-import {
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  computed,
-} from 'vue-demi'
+import type { Viewport as ViewportType } from '@designable/core'
 import { requestIdle } from '@designable/shared'
-import { AuxToolWidget, EmptyWidget } from '../widgets'
+import type { VNode } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
 import { usePrefix, useViewport } from '../hooks'
 import { useStyle } from '../shared/util'
-
-import type { VNode } from 'vue-demi'
-import type { Viewport as ViewportType } from '@designable/core'
+import { AuxToolWidget, EmptyWidget } from '../widgets'
 
 export interface IViewportProps {
   placeholder: VNode
@@ -24,14 +17,12 @@ export const Viewport = defineComponent({
     placeholder: {},
     dragTipsDirection: String,
   },
-  setup(props, { slots, attrs, refs }) {
+  setup(props, { slots, attrs }) {
     const loaded = ref(false)
     const prefixRef = usePrefix('viewport')
     const viewportHookRef = useViewport()
 
-    const containerRef = computed<HTMLDivElement>(
-      () => refs.container as HTMLDivElement
-    )
+    const containerRef = ref<HTMLDivElement>()
     // 该组件内部缓存的ref
     const viewportRef = ref<ViewportType>()
     const isFrameRef = ref(false)
@@ -73,10 +64,12 @@ export const Viewport = defineComponent({
       return (
         <div
           ref="container"
-          attrs={attrs}
+          {...{
+            attrs,
+          }}
           class={prefixRef.value}
           style={{
-            opacity: !loaded ? 0 : 1,
+            opacity: !loaded.value ? 0 : 1,
             overflow: isFrameRef.value ? 'hidden' : 'overlay',
             ...style,
           }}

@@ -1,7 +1,7 @@
 import { isFn } from '@designable/shared'
-import { inject, onBeforeUnmount, ref } from 'vue-demi'
+import { inject, onBeforeUnmount, ref } from 'vue'
 import { DesignerEngineSymbol } from '../context'
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 import type { Engine } from '@designable/core'
 export interface IEffects {
   (engine: Engine): void

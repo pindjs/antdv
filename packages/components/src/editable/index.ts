@@ -1,4 +1,4 @@
-import { defineComponent, ref, onBeforeUnmount, computed } from 'vue-demi'
+import { defineComponent, ref, onBeforeUnmount, computed } from 'vue'
 import { Popover as AntdPopover, Icon } from 'ant-design-vue'
 import { isVoidField } from '@formily/core'
 import { reaction } from '@formily/reactive'
@@ -41,7 +41,7 @@ const EditableInner = observer(
   // eslint-disable-next-line vue/one-component-per-file
   defineComponent<EditableProps>({
     name: 'Editable',
-    setup(props, { attrs, slots, refs }) {
+    setup(props, { attrs, slots }) {
       const fieldRef = useField<Field>()
       const pattern = useInitialPattern(fieldRef)
       const prefixCls = usePrefixCls(
@@ -78,7 +78,7 @@ const EditableInner = observer(
         const field = fieldRef.value
         const editable = field.pattern === 'editable'
         const itemProps = useFormItemProps(fieldRef)
-
+        const innerRef = ref<HTMLElement>()
         const closeEditable = () => {
           if (editable && !fieldRef.value?.errors?.length) {
             setEditable(false)
@@ -86,9 +86,8 @@ const EditableInner = observer(
         }
 
         const onClick = (e: MouseEvent) => {
-          const innerRef = refs.innerRef as HTMLElement
           const target = e.target as HTMLElement
-          const close = innerRef.querySelector(`.${prefixCls}-close-btn`)
+          const close = innerRef.value.querySelector(`.${prefixCls}-close-btn`)
 
           if (target?.contains(close) || close?.contains(target)) {
             closeEditable()
@@ -96,7 +95,7 @@ const EditableInner = observer(
             setTimeout(() => {
               setEditable(true)
               setTimeout(() => {
-                innerRef.querySelector('input')?.focus()
+                innerRef.value.querySelector('input')?.focus()
               })
             })
           }
@@ -161,7 +160,7 @@ const EditableInner = observer(
           'div',
           {
             class: prefixCls,
-            ref: 'innerRef',
+            ref: innerRef,
             on: {
               click: onClick,
             },

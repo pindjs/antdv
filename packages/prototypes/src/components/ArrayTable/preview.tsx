@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Table, Row } from 'ant-design-vue'
 import { observer } from '@formily/reactive-vue'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
@@ -9,9 +9,9 @@ import {
   TreeNodeWidget,
   DroppableWidget,
   useNodeIdProps,
-} from '@formily/antdv-designable'
-import { ArrayBase } from '@formily/antdv'
-import { composeExport, usePrefixCls } from '@formily/antdv/esm/__builtins__'
+} from '@shebao/antdv-designable'
+import { ArrayBase } from '@shebao/antdv'
+import { composeExport, usePrefixCls } from '@shebao/antdv/esm/__builtins__'
 import { AllLocales } from '../../locales'
 import { AllSchemas } from '../../schemas'
 import { useDropTemplate } from '../../hooks'

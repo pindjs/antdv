@@ -1,5 +1,5 @@
 import { AppendNodeEvent } from '@designable/core'
-import { useDesigner } from '@formily/antdv-designable'
+import { useDesigner } from '@shebao/antdv-designable'
 import { matchComponent, matchChildComponent } from '../shared'
 import type { TreeNode } from '@designable/core'
 

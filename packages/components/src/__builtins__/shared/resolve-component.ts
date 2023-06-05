@@ -1,4 +1,4 @@
-import { h, toRaw } from 'vue-demi'
+import { h, toRaw } from 'vue'
 import { isVnode } from './utils'
 import type { SlotTypes } from '.'
 import type { Component } from 'vue'

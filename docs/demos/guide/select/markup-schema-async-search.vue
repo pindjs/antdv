@@ -22,7 +22,7 @@
 import { createForm, onFieldInit, onFieldReact } from '@formily/core'
 import { action, observable } from '@formily/reactive'
 import { createSchemaField, FormProvider } from '@formily/vue'
-import { FormItem, Select, Submit } from '@formily/antdv'
+import { FormItem, Select, Submit } from '@shebao/antdv'
 
 let timeout
 let currentValue

@@ -1,5 +1,5 @@
-import { DatePicker as FormilyDatePicker } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { DatePicker as FormilyDatePicker } from '@shebao/antdv'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { createFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'

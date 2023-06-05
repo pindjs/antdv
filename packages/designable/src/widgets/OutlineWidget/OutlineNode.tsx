@@ -1,23 +1,22 @@
-import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue-demi'
+import type { TreeNode } from '@designable/core'
 import { ClosestPosition, CursorStatus, DragMoveEvent } from '@designable/core'
 import { isFn } from '@designable/shared'
 import { autorun } from '@formily/reactive'
 import { observer } from '@formily/reactive-vue'
+import { defineComponent, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useContext } from '../../context'
 import {
-  usePrefix,
   useCursor,
-  useSelection,
-  useOutlineDragon,
   useDesigner,
+  useOutlineDragon,
+  usePrefix,
+  useSelection,
 } from '../../hooks'
+import { useStyle } from '../../shared/util'
 import { IconWidget } from '../IconWidget'
 import { NodeTitleWidget } from '../NodeTitleWidget'
-import { useStyle } from '../../shared/util'
-import { useContext } from '../../context'
 import { NodeSymbol } from './context'
 import './styles.less'
-
-import type { TreeNode } from '@designable/core'
 
 export interface IOutlineTreeNodeProps {
   node: TreeNode
@@ -28,7 +27,7 @@ export const OutlineTreeNode = observer(
   defineComponent({
     name: 'DnOutlineTreeNode',
     props: ['workspaceId', 'node'],
-    setup(props, { refs }) {
+    setup(props) {
       const style = useStyle()
 
       const prefix = usePrefix('outline-tree-node')
@@ -44,8 +43,7 @@ export const OutlineTreeNode = observer(
       const unSub = []
       onMounted(() => {
         const ref = refInstance
-        refInstance.value = refs.ref as HTMLDivElement
-        const subcb = engine.value.subscribeTo(DragMoveEvent, () => {
+        const subCb = engine.value.subscribeTo(DragMoveEvent, () => {
           const closestNodeId = outlineDragon.value?.closestNode?.id
           const closestDirection = outlineDragon.value?.closestDirection
           const id = props.node.id
@@ -76,9 +74,9 @@ export const OutlineTreeNode = observer(
             }
           }
         })
-        unSub.push(subcb)
+        unSub.push(subCb)
         //[node, selection]
-        const subcb2 = autorun(() => {
+        const subCb2 = autorun(() => {
           const selectedIds = selection.value?.selected || []
           const id = props.node.id
           if (!ref.value) return
@@ -97,7 +95,7 @@ export const OutlineTreeNode = observer(
             }
           }
         })
-        unSub.push(subcb2)
+        unSub.push(subCb2)
       })
 
       onBeforeUnmount(() => {

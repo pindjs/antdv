@@ -1,5 +1,5 @@
 import { observer } from '@formily/reactive-vue'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { useWorkbench } from '../hooks'
 import { Workspace } from './Workspace'
 

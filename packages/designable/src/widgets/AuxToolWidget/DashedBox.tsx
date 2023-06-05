@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { isNum } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import {
   useHover,
   usePrefix,

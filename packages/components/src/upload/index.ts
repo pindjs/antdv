@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Upload as AntdUpload, Button, Icon } from 'ant-design-vue'
 import { connect, mapProps, h } from '@formily/vue'
 import { composeExport } from '../__builtins__'

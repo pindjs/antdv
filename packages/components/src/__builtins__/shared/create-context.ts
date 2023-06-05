@@ -1,14 +1,5 @@
-import {
-  defineComponent,
-  provide,
-  inject,
-  readonly,
-  ref,
-  toRef,
-} from 'vue-demi'
-
-import type { InjectionKey, Ref } from 'vue-demi'
-import type { DefineComponent } from '@formily/vue'
+import type { InjectionKey, Ref, DefineComponent } from 'vue'
+import { defineComponent, inject, provide, readonly, ref, toRef } from 'vue'
 
 export type CreateContext<T> = {
   Provider: DefineComponent<{ value: any }>

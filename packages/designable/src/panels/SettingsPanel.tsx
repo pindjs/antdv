@@ -1,4 +1,4 @@
-import { defineComponent, ref, watchEffect } from 'vue-demi'
+import { defineComponent, ref, watchEffect } from 'vue'
 import { requestIdle } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
 import { TextWidget, IconWidget } from '../widgets'

@@ -1,9 +1,9 @@
-# @formily/antdv
+# @shebao/antdv
 
 > Formily Component Adaptor
 
 ## Install
 
 ```bash
-npm install @formily/antdv --save
+npm install @shebao/antdv --save
 ```

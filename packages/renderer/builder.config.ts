@@ -5,10 +5,10 @@ export const BuilderConfig: IBuilderConfig = {
   targetLibCjsDir: 'lib',
   targetLibEsDir: 'es',
   externals: {
-    '@formily/antdv': 'Formily.Antdv',
-    '@formily/antdv-designable': 'Formily.AntdvDesignable',
-    '@formily/antdv-setters': 'Formily.AntdvSetters',
-    '@formily/antdv-settings-form': 'Formily.AntdvSettingsForm',
-    '@formily/antdv-prototypes': 'Formily.AntdvPrototypes',
+    '@shebao/antdv': 'Formily.Antdv',
+    '@shebao/antdv-designable': 'Formily.AntdvDesignable',
+    '@shebao/antdv-setters': 'Formily.AntdvSetters',
+    '@shebao/antdv-settings-form': 'Formily.AntdvSettingsForm',
+    '@shebao/antdv-prototypes': 'Formily.AntdvPrototypes',
   },
 }

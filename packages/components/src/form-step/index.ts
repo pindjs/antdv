@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Steps } from 'ant-design-vue'
 import { action, model, observable } from '@formily/reactive'
 import { observer } from '@formily/reactive-vue'
@@ -11,7 +11,7 @@ import {
 } from '@formily/vue'
 import { composeExport, usePrefixCls } from '../__builtins__'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { VoidField, Form } from '@formily/core'
 import type { Schema, SchemaKey } from '@formily/json-schema'
 import type { Steps as StepsProps } from 'ant-design-vue/types/steps/steps'

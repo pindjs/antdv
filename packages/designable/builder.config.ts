@@ -5,6 +5,6 @@ export const BuilderConfig: IBuilderConfig = {
   targetLibCjsDir: 'lib',
   targetLibEsDir: 'es',
   externals: {
-    '@formily/antdv': 'Formily.Antdv',
+    '@shebao/antdv': 'Formily.Antdv',
   },
 }

@@ -1,10 +1,10 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Button } from 'ant-design-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { useOperation, usePrefix } from '../../hooks'
 import { IconWidget } from '../IconWidget'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { TreeNode } from '@designable/core'
 
 export interface IDeleteProps {

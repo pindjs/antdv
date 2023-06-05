@@ -20,7 +20,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, Field } from '@formily/vue'
-import { FormItem, InputNumber, Submit } from '@formily/antdv'
+import { FormItem, InputNumber, Submit } from '@shebao/antdv'
 
 const form = createForm()
 

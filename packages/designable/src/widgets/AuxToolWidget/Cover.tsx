@@ -1,9 +1,9 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { CursorStatus, ClosestPosition } from '@designable/core'
 import { isNum } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
 import { FragmentComponent as Fragment } from '@formily/vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import {
   useViewport,
   useDragon,
@@ -91,13 +91,7 @@ const CoverComponent = observer(
             {viewportDragonRef.value.dragNodes.map((node) => {
               if (!node) return
               if (!viewportRef.value.findElementById(node.id)) return
-              return (
-                <CoverRect
-                  key={node.id}
-                  dragging={true}
-                  node={node}
-                />
-              )
+              return <CoverRect key={node.id} dragging={true} node={node} />
             })}
             {renderDropCover()}
           </Fragment>

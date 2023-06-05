@@ -1,6 +1,6 @@
-import { defineComponent, unref } from 'vue-demi'
+import { defineComponent, unref } from 'vue'
 import { useField } from '@formily/vue'
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@shebao/antdv-designable'
 import { FoldItem } from '../FoldItem'
 import { SizeInput } from '../SizeInput'
 import { InputItems } from '../InputItems'

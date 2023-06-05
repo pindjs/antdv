@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, onMounted } from 'vue-demi'
+import { defineComponent, computed, ref, onMounted } from 'vue'
 import Loading from '../loading'
 import { monacoContainerProps } from './types'
 import styles from './style'

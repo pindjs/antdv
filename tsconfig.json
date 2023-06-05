@@ -14,12 +14,16 @@
     "declaration": true,
     "experimentalDecorators": true,
     "downlevelIteration": true,
+    "noImplicitThis": true,
     "baseUrl": ".",
     "paths": {
-      "@formily/antdv": ["packages/components/src"],
-      "@formily/antdv/esm/*": ["packages/components/src/*"],
-      "@formily/antdv/lib/*": ["packages/components/src/*"],
-      "@formily/antdv-*": ["packages/*/src"]
+      "@shebao/antdv": ["packages/components/src"],
+      "@shebao/antdv/esm/*": ["packages/components/src/*"],
+      "@shebao/antdv/lib/*": ["packages/components/src/*"],
+      "@shebao/antdv-*": ["packages/*/src"]
     }
+  },
+  "vueCompilerOptions": {
+    "target": 2.7
   }
 }

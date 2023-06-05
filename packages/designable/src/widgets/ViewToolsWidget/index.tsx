@@ -1,10 +1,10 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Button } from 'ant-design-vue'
 import { observer } from '@formily/reactive-vue'
 import { IconWidget } from '../IconWidget'
 import { usePrefix, useWorkbench } from '../../hooks'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { WorkbenchTypes } from '@designable/core'
 
 export interface IViewToolsWidget {

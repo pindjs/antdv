@@ -1,5 +1,5 @@
-import { Switch } from '@formily/antdv'
-import { defineComponent } from 'vue-demi'
+import { Switch } from '@shebao/antdv'
+import { defineComponent } from 'vue'
 
 export interface IFormItemSwitcherProps {
   value?: string

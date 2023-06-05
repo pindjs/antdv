@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 const isString = (val: unknown): val is string => typeof val === 'string'
 const isObject = (val: unknown): val is Record<any, any> =>
   val !== null && typeof val === 'object'
@@ -44,8 +44,10 @@ function normalizeStyle(value: unknown): NormalizedStyle | string | undefined {
     return value
   }
 }
-export default defineComponent((props, { slots }) => {
-  return () => (
-    <div style={normalizeStyle(loadingStyles)}>{slots.default?.()}</div>
-  )
+export default defineComponent({
+  setup(props, { slots }) {
+    return () => (
+      <div style={normalizeStyle(loadingStyles)}>{slots.default?.()}</div>
+    )
+  },
 })

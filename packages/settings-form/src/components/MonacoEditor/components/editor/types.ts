@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from 'vue-demi'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 import type { MonacoEditor } from '../../types'
 

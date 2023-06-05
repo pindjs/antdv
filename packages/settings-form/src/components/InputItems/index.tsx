@@ -1,9 +1,9 @@
-import { defineComponent, computed, provide } from 'vue-demi'
-import { usePrefix, IconWidget, useContext } from '@formily/antdv-designable'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { defineComponent, computed, provide } from 'vue'
+import { usePrefix, IconWidget, useContext } from '@shebao/antdv-designable'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import './styles.less'
 
-import type { InjectionKey, Ref } from 'vue-demi'
+import type { InjectionKey, Ref } from 'vue'
 
 export interface IInputItemsContext {
   width?: string | number

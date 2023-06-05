@@ -1,5 +1,5 @@
-import { defineComponent } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { defineComponent } from 'vue'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { usePrefix } from '../hooks'
 import { useStyle } from '../shared/util'
 

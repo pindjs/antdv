@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { observer } from '@formily/reactive-vue'
 import { useTree, usePrefix } from '../../hooks'
 import { IconWidget } from '../IconWidget'

@@ -1,5 +1,5 @@
 import { isStr } from '@designable/shared'
-import { getCurrentInstance } from 'vue-demi'
+import { getCurrentInstance } from 'vue'
 import type { VNode } from 'vue/types/umd'
 
 /**
@@ -26,11 +26,8 @@ const css2obj = (css) => {
  * @returns
  */
 export function useStyle() {
-  let {
-    vnode: {
-      data: { style },
-    },
-  } = getCurrentInstance()
+  const { proxy } = getCurrentInstance()
+  let style = proxy.$vnode?.data?.style
   if (isStr(style)) {
     style = css2obj(style)
   }

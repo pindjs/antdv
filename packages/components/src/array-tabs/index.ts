@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue-demi'
+import { defineComponent, ref } from 'vue'
 import { Tabs, Badge } from 'ant-design-vue'
 import { observer } from '@formily/reactive-vue'
 import { h, useField, useFieldSchema, RecursionField } from '@formily/vue'

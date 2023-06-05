@@ -1,10 +1,10 @@
 import { clone, toArr } from '@formily/shared'
 import { observer } from '@formily/reactive-vue'
-import { IconWidget, TextWidget, usePrefix } from '@formily/antdv-designable'
-import { defineComponent } from 'vue-demi'
+import { IconWidget, TextWidget, usePrefix } from '@shebao/antdv-designable'
+import { defineComponent } from 'vue'
 import { traverseTree } from './shared'
 import './styles.less'
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { INodeItem, ITreeDataSource } from './types'
 
 export interface ITitleProps extends INodeItem {

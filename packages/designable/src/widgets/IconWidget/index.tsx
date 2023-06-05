@@ -1,24 +1,17 @@
-import { Tooltip } from 'ant-design-vue'
-import {
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  unref,
-} from 'vue-demi'
-import { isStr, isObj, isFn, isPlainObj } from '@designable/shared'
+import { isObj, isPlainObj, isStr } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
 import {
   composeExport,
   createContext,
   useContext,
-} from '@formily/antdv/esm/__builtins__'
-import { cloneElement, isVNode, useStyle } from '../../shared/util'
-import { usePrefix, useRegistry, useTheme } from '../../hooks'
-import './styles.less'
-
-import type { PropType, VNode } from 'vue-demi'
+} from '@shebao/antdv/esm/__builtins__'
 import type { Tooltip as TooltipProps } from 'ant-design-vue'
+import { Tooltip } from 'ant-design-vue'
+import type { PropType, VNode } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, ref, unref } from 'vue'
+import { usePrefix, useRegistry, useTheme } from '../../hooks'
+import { cloneElement, isVNode, useStyle } from '../../shared/util'
+import './styles.less'
 
 const IconContext = createContext<IconProviderProps>(null)
 
@@ -52,8 +45,9 @@ const IconWidgetInner = observer(
         type: [String, Function, Object] as PropType<IIconWidgetProps['infer']>,
       },
       size: { type: [Number, String] as PropType<IIconWidgetProps['size']> },
+      onClick: { type: Function },
     },
-    setup(props: IIconWidgetProps, { attrs: _attrs, listeners, emit }) {
+    setup(props, { attrs: _attrs, listeners, emit }) {
       const themeRef = useTheme()
       const IconContextRef = useContext(IconContext)
       const registry = useRegistry()
@@ -63,7 +57,7 @@ const IconWidgetInner = observer(
         const size = isNumSize(props.size)
           ? `${props.size}px`
           : props.size || '1em'
-        const attrs = _attrs as unknown as HTMLElement
+        const attrs = _attrs
         const style = useStyle()
         const height = style?.height || size
         const width = style?.width || size
@@ -71,18 +65,19 @@ const IconWidgetInner = observer(
         const takeIcon = (infer: any) => {
           const theme = unref(themeRef)
           if (isStr(infer)) {
-            const finded = registry.getDesignerIcon(infer)
-            if (finded) {
-              return takeIcon(finded)
+            const fined = registry.getDesignerIcon(infer)
+            if (fined) {
+              return takeIcon(fined)
             }
             return <img src={infer} height={height} width={width} />
-          } else if (isFn(infer)) {
+          } else if (typeof infer?.render === 'function') {
+            const InferIcon = infer
             return (
-              <infer
+              <InferIcon
                 props={{ height: height, width: width, fill: 'currentColor' }}
                 attrs={{ height: height, width: width, fill: 'currentColor' }}
                 fill="currentColor"
-              ></infer>
+              ></InferIcon>
             )
           } else if (isVNode(infer)) {
             if (infer.tag === 'svg') {
@@ -139,11 +134,16 @@ const IconWidgetInner = observer(
         }
         return renderTooltips(
           <span
-            attrs={{ ...attrs, infer: isStr(props.infer) && props.infer }}
+            {...{
+              ...attrs,
+              infer: isStr(props.infer) && props.infer,
+            }}
             class={prefixRef.value}
             style={{
               ...style,
-              cursor: listeners.click ? 'pointer' : attrs.style?.cursor,
+              cursor: listeners.click
+                ? 'pointer'
+                : (attrs.style as any)?.cursor,
             }}
             onClick={() => emit('click')}
           >
@@ -161,13 +161,12 @@ const ShadowSVG = defineComponent({
     height: [Number, String],
     content: String,
   },
-  setup(props: IShadowSVGProps, { refs }) {
+  setup(props: IShadowSVGProps) {
     const refInstance = ref<HTMLDivElement>(null)
     const width = isNumSize(props.width) ? `${props.width}px` : props.width
     const height = isNumSize(props.height) ? `${props.height}px` : props.height
 
     onMounted(() => {
-      refInstance.value = refs.ref as HTMLDivElement
       if (refInstance.value) {
         const root = refInstance.value.attachShadow({
           mode: 'open',
@@ -184,7 +183,7 @@ const ShadowSVG = defineComponent({
       // })
     })
 
-    return () => <div ref="ref"></div>
+    return () => <div ref={refInstance}></div>
   },
 })
 

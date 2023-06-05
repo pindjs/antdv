@@ -7,13 +7,13 @@ import {
   shallowRef,
   ref,
   watch,
-} from 'vue-demi'
+} from 'vue'
 import { useMonaco } from '../../hooks'
 import { getOrCreateModel, isUndefined } from '../../utils'
 import MonacoContainer from '../monacoContainer'
 import { editorProps } from './types'
 import type { Nullable, MonacoEditor } from '../../types'
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 import type * as monacoEditor from 'monaco-editor/esm/vs/editor/editor.api'
 
 import type { EditorProps } from './types'

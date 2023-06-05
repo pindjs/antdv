@@ -1,21 +1,25 @@
+import type { ArrayField } from '@formily/core'
+import { clone, isValid, uid } from '@formily/shared'
+import type { Schema } from '@formily/vue'
+import { Fragment, h, useField, useFieldSchema } from '@formily/vue'
+import { Button, Icon } from 'ant-design-vue'
+import type { Button as ButtonProps } from 'ant-design-vue/types/button/button'
+import type { InjectionKey, Ref } from 'vue'
 import {
   defineComponent,
-  provide,
   inject,
-  toRefs,
-  ref,
   onBeforeUnmount,
-} from 'vue-demi'
-import { Button, Icon } from 'ant-design-vue'
+  provide,
+  ref,
+  toRefs,
+} from 'vue'
 import { HandleDirective } from 'vue-slicksort'
-import { Fragment, useField, useFieldSchema, h } from '@formily/vue'
-import { isValid, clone, uid } from '@formily/shared'
-import { resolveComponent, composeExport, usePrefixCls } from '../__builtins__'
-
-import type { ArrayField } from '@formily/core'
-import type { Button as ButtonProps } from 'ant-design-vue/types/button/button'
-import type { Schema } from '@formily/json-schema'
-import type { Ref, InjectionKey } from 'vue-demi'
+import {
+  composeExport,
+  evalListener,
+  resolveComponent,
+  usePrefixCls,
+} from '../__builtins__'
 
 export type KeyMapProps =
   | WeakMap<Record<string, unknown>, string>
@@ -60,7 +64,7 @@ export interface IArrayBaseContext {
   schema: Ref<Schema>
   listeners: {
     // eslint-disable-next-line @typescript-eslint/ban-types
-    [key in string]?: Function
+    [key in string]?: Function | Function[]
   }
   keyMap?: KeyMapProps
 }
@@ -74,13 +78,17 @@ const useArray = () => {
 }
 
 const useIndex = (index?: number) => {
+  const itemRef = inject(ItemSymbol)
+  if (itemRef) return ref(index)
   const { index: indexRef } = toRefs(inject(ItemSymbol))
-  return indexRef ?? ref(index)
+  return indexRef
 }
 
-const useRecord = (record?: number) => {
+const useRecord = (record?: Record<string, any>) => {
+  const itemRef = inject(ItemSymbol)
+  if (itemRef) return ref(record)
   const { record: recordRef } = toRefs(inject(ItemSymbol))
-  return recordRef ?? ref(record)
+  return recordRef
 }
 
 const isObjectValue = (schema: Schema) => {
@@ -265,14 +273,15 @@ const ArrayBaseAddition = defineComponent<IArrayBaseAdditionProps>({
               )
               if (props.method === 'unshift') {
                 array?.field?.value.unshift(defaultValue)
-                array.listeners?.add?.(0)
+                evalListener(array?.listeners?.add, 0)
               } else {
                 array?.field?.value.push(defaultValue)
-                array.listeners?.add?.(array?.field?.value?.value?.length - 1)
+                evalListener(
+                  array?.listeners?.add,
+                  array?.field?.value?.value?.length - 1
+                )
               }
-              if (listeners.click) {
-                listeners.click(e)
-              }
+              evalListener(listeners.click, e)
             },
           },
         },
@@ -316,11 +325,8 @@ const ArrayBaseRemove = defineComponent<{ title?: string; index?: number }>({
               }
 
               base?.field.value.remove(indexRef.value as number)
-              base?.listeners?.remove?.(indexRef.value as number)
-
-              if (listeners.click) {
-                listeners.click(e)
-              }
+              evalListener(base?.listeners?.remove, indexRef.value)
+              evalListener(listeners.click, e)
             },
           },
         },
@@ -363,11 +369,8 @@ const ArrayBaseMoveDown = defineComponent<{ title?: string; index?: number }>({
               }
 
               base?.field.value.moveDown(indexRef.value as number)
-              base?.listeners?.moveDown?.(indexRef.value as number)
-
-              if (listeners.click) {
-                listeners.click(e)
-              }
+              evalListener(base?.listeners?.moveDown, indexRef.value)
+              evalListener(listeners.click, e)
             },
           },
         },
@@ -410,11 +413,9 @@ const ArrayBaseMoveUp = defineComponent<{ title?: string; index?: number }>({
               }
 
               base?.field.value.moveUp(indexRef.value as number)
-              base?.listeners?.moveUp?.(indexRef.value as number)
 
-              if (listeners.click) {
-                listeners.click(e)
-              }
+              evalListener(base?.listeners?.moveUp, indexRef.value)
+              evalListener(listeners.click, e)
             },
           },
         },

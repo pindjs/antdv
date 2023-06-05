@@ -53,7 +53,7 @@ const presets = () => {
     'ant-design-vue': 'antd',
     vant: 'vant',
     '@ant-design/icons': 'icons',
-    '@vue/composition-api': 'VueCompositionAPI',
+    vue: 'VueCompositionAPI',
     '@formily/reactive-react': 'Formily.ReactiveReact',
     '@formily/reactive-vue': 'Formily.ReactiveVue',
     '@formily/reactive': 'Formily.Reactive',

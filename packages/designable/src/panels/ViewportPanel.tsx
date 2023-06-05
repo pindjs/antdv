@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Simulator } from '../containers'
 import { WorkspacePanel } from './WorkspacePanel'
 

@@ -4,7 +4,7 @@ const CodeSandBoxHTML = '<div id="app"></div>'
 const CodeSandBoxJS = `
 import Vue from 'vue'
 import App from './App.vue'
-import "@formily/antdv/dist/antdv.css";
+import "@shebao/antdv/dist/antdv.css";
 import "ant-design-vue/dist/antd.css";
 
 Vue.config.productionTip = false
@@ -64,17 +64,15 @@ export function createCodeSandBox(codeStr) {
           dependencies: {
             '@formily/core': 'latest',
             '@formily/vue': 'latest',
-            '@formily/antdv': 'latest',
+            '@shebao/antdv': 'latest',
             axios: '^0.21.1',
             'core-js': '^3.6.5',
             'ant-design-vue': '^1.7.8',
-            'vue-demi': 'latest',
-            vue: '^2.6.11',
+            vue: '^2.7.0',
           },
           devDependencies: {
             '@vue/cli-plugin-babel': '~4.5.0',
             '@vue/cli-service': '~4.5.0',
-            '@vue/composition-api': 'latest',
             'vue-template-compiler': '^2.6.11',
             less: 'latest',
             'less-loader': '^5.0.0',

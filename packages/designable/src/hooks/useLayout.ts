@@ -1,7 +1,7 @@
-import { inject, ref } from 'vue-demi'
+import { inject, ref } from 'vue'
 import { DesignerLayoutSymbol } from '../context'
 
-import type { ComputedRef } from 'vue-demi'
+import type { ComputedRef } from 'vue'
 import type { IDesignerLayoutContext } from '../types'
 
 export const useLayout = (): ComputedRef<IDesignerLayoutContext> => {

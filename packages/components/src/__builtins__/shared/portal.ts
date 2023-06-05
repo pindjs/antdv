@@ -1,4 +1,4 @@
-import { defineComponent, onBeforeUnmount } from 'vue-demi'
+import { defineComponent, onBeforeUnmount } from 'vue'
 import { h, Fragment } from '@formily/vue'
 export interface IPortalProps {
   id?: string | symbol

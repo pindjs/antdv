@@ -1,13 +1,13 @@
-import { defineComponent, unref } from 'vue-demi'
+import { defineComponent, unref } from 'vue'
 import { Card as AntCard } from 'ant-design-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { uid } from '@designable/shared'
 import {
   useTreeNode,
   TreeNodeWidget,
   DroppableWidget,
-} from '@formily/antdv-designable'
+} from '@shebao/antdv-designable'
 import { createVoidFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'

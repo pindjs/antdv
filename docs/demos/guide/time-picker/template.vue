@@ -21,7 +21,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, Field } from '@formily/vue'
-import { FormItem, TimePicker, Submit } from '@formily/antdv'
+import { FormItem, TimePicker, Submit } from '@shebao/antdv'
 
 const form = createForm()
 

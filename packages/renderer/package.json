@@ -1,5 +1,5 @@
 {
-  "name": "@formily/antdv-renderer",
+  "name": "@shebao/antdv-renderer",
   "version": "1.0.0-alpha.0",
   "license": "MIT",
   "main": "lib",
@@ -22,7 +22,7 @@
     "**/*/style.js"
   ],
   "scripts": {
-    "serve": "webpack-dev-server --config src/config/webpack.dev.ts",
+    "dev": "vite",
     "build:docs": "webpack --config src/config/webpack.prod.ts"
   },
   "repository": {
@@ -37,8 +37,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "vue": "^2.6.0 || >=3.0.0",
-    "vue-demi": "*"
+    "vue": "^2.7.0"
   },
   "dependencies": {
     "core-js": "^3.23.3",
@@ -50,18 +49,22 @@
     "@designable/core": "^1.0.0-beta.45",
     "@designable/formily-transformer": "^1.0.0-beta.45",
     "@designable/shared": "1.0.0-beta.45",
-    "@formily/antdv": "^1.0.0-alpha.8",
-    "@formily/antdv-designable": "^1.0.0-alpha.0",
-    "@formily/antdv-prototypes": "^1.0.0-alpha.0",
-    "@formily/antdv-setters": "^1.0.0-alpha.0",
-    "@formily/antdv-settings-form": "^1.0.0-alpha.0",
+    "@shebao/antdv": "^1.0.0-alpha.8",
+    "@shebao/antdv-designable": "^1.0.0-alpha.0",
+    "@shebao/antdv-prototypes": "^1.0.0-alpha.0",
+    "@shebao/antdv-setters": "^1.0.0-alpha.0",
+    "@shebao/antdv-settings-form": "^1.0.0-alpha.0",
     "@formily/reactive": "^2.0.0",
     "@formily/reactive-vue": "^2.0.0",
     "@formily/shared": "^2.0.0",
     "@formily/vue": "^2.0.0",
     "babel-loader": "^8.2.3",
-    "clean-webpack-plugin": "^4.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack-cli": "3.3.10"
+    "vite": "^4.3.5",
+    "vue": "^2.7.0",
+    "@vitejs/plugin-vue2-jsx": "^1.1.0",
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "fs-extra": "^11.1.0",
+    "less": "^4.1.2",
+    "@types/fs-extra": "^9.0.13"
   }
 }

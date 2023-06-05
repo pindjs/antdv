@@ -1,13 +1,6 @@
-import {
-  provide,
-  inject,
-  defineComponent,
-  ref,
-  watch,
-  InjectionKey,
-  Ref,
-} from 'vue-demi'
 import { h } from '@formily/vue'
+import type { InjectionKey, Ref } from 'vue'
+import { defineComponent, inject, provide, ref, watch } from 'vue'
 import { usePrefixCls } from '../__builtins__'
 import { useResponsiveFormLayout } from './useResponsiveFormLayout'
 
@@ -103,9 +96,13 @@ export const FormLayout = defineComponent({
     gridColumnGap: {},
     gridRowGap: {},
   },
-  setup(customProps: FormLayoutProps, { attrs, slots, refs }) {
+  setup(customProps, { attrs, slots }) {
     const prefixCls = usePrefixCls('formily-form', attrs.prefixCls as string)
-    const { props } = useResponsiveFormLayout(customProps, refs)
+    const rootRef = ref()
+    const { props } = useResponsiveFormLayout(
+      customProps as FormLayoutProps,
+      rootRef
+    )
 
     const deepLayout = useFormDeepLayout()
     const newDeepLayout = ref({

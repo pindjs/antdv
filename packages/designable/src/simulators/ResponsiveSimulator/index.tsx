@@ -1,24 +1,23 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount } from 'vue-demi'
+import type { Engine } from '@designable/core'
 import {
-  DragStartEvent,
-  DragMoveEvent,
-  DragStopEvent,
   CursorType,
+  DragMoveEvent,
+  DragStartEvent,
+  DragStopEvent,
 } from '@designable/core'
 import {
   calcSpeedFactor,
   createUniformSpeedAnimation,
   isStr,
 } from '@designable/shared'
-import { observer } from '@formily/reactive-vue'
 import { observe } from '@formily/reactive'
-import { useScreen, useDesigner, usePrefix } from '../../hooks'
+import { observer } from '@formily/reactive-vue'
+import type { Ref } from 'vue'
+import { defineComponent, nextTick, onBeforeUnmount, ref } from 'vue'
+import { useDesigner, usePrefix, useScreen } from '../../hooks'
 import { IconWidget } from '../../widgets'
 import { ResizeHandle, ResizeHandleType } from './handle'
 import './styles.less'
-
-import type { Ref } from 'vue-demi'
-import type { Engine } from '@designable/core'
 
 const useResizeEffect = (
   container: Ref<HTMLDivElement>, // React.MutableRefObject<HTMLDivElement>,
@@ -121,7 +120,6 @@ const useResizeEffect = (
 }
 
 /**
- * InputNumber ElmentUI 显示不了100%
  * @param content
  */
 function useScreenModifier(screen, content: Ref<HTMLDivElement>) {
@@ -141,13 +139,9 @@ function useScreenModifier(screen, content: Ref<HTMLDivElement>) {
 const ResponsiveSimulatorComponent = defineComponent({
   name: 'DnResponsiveSimulator',
   props: [],
-  setup(props, { attrs, slots, refs }) {
-    const content = computed<HTMLDivElement>(
-      () => refs.content as HTMLDivElement
-    )
-    const container = computed<HTMLDivElement>(
-      () => refs.container as HTMLDivElement
-    )
+  setup(props, { attrs, slots }) {
+    const content = ref<HTMLDivElement>()
+    const container = ref<HTMLDivElement>()
     const prefixRef = usePrefix('responsive-simulator')
     const screenRef = useScreen()
 
@@ -160,7 +154,9 @@ const ResponsiveSimulatorComponent = defineComponent({
     return () => {
       return (
         <div
-          attrs={attrs}
+          {...{
+            attrs,
+          }}
           class={prefixRef.value}
           style={{
             height: '100%',
@@ -170,7 +166,7 @@ const ResponsiveSimulatorComponent = defineComponent({
           }}
         >
           <div
-            ref="container"
+            ref={container}
             style={{
               position: 'absolute',
               top: 0,
@@ -181,7 +177,7 @@ const ResponsiveSimulatorComponent = defineComponent({
             }}
           >
             <div
-              ref="content"
+              ref={content}
               style={{
                 width: isStr(screenRef.value.width)
                   ? screenRef.value.width

@@ -1,7 +1,7 @@
-import { TextWidget, usePrefix } from '@formily/antdv-designable'
+import { TextWidget, usePrefix } from '@shebao/antdv-designable'
 import { Menu } from 'ant-design-vue'
-import { MonacoInput } from '@formily/antdv-settings-form'
-import { defineComponent, ref } from 'vue-demi'
+import { MonacoInput } from '@shebao/antdv-settings-form'
+import { defineComponent, ref } from 'vue'
 import { isPlainObj, reduce } from '@formily/shared'
 import { FieldProperties } from './properties'
 

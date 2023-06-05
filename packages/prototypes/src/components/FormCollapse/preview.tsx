@@ -7,10 +7,10 @@ import {
   DroppableWidget,
   TreeNodeWidget,
   useSelection,
-} from '@formily/antdv-designable'
+} from '@shebao/antdv-designable'
 import { toArr } from '@formily/shared'
-import { defineComponent, nextTick, ref } from 'vue-demi'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { defineComponent, nextTick, ref } from 'vue'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { useDropTemplate } from '../../hooks'
 import { createVoidFieldSchema } from '../Field'

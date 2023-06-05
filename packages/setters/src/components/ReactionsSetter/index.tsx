@@ -1,11 +1,11 @@
 import { clone, uid } from '@formily/shared'
 import { GlobalRegistry } from '@designable/core'
 import { requestIdle } from '@designable/shared'
-import { usePrefix, TextWidget } from '@formily/antdv-designable'
-import { MonacoInput } from '@formily/antdv-settings-form'
+import { usePrefix, TextWidget } from '@shebao/antdv-designable'
+import { MonacoInput } from '@shebao/antdv-settings-form'
 import { createForm, isVoidField } from '@formily/core'
 import { createSchemaField, FragmentComponent } from '@formily/vue'
-import { markRaw, ref, watch, defineComponent } from 'vue-demi'
+import { markRaw, ref, watch, defineComponent } from 'vue'
 
 import {
   Form,
@@ -14,7 +14,7 @@ import {
   Select,
   FormItem,
   FormCollapse,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 import { Modal, Card, Button, Tag, Tooltip, Space } from 'ant-design-vue'
 import { PathSelector } from './PathSelector'
 import { FieldPropertySetter } from './FieldPropertySetter'

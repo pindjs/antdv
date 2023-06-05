@@ -93,7 +93,7 @@ import {
   Input,
   Editable,
   Switch,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 const fields = createSchemaField({
   components: {

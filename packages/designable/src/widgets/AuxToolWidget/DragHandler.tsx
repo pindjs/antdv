@@ -1,12 +1,12 @@
 import { observer } from '@formily/reactive-vue'
 import { Button } from 'ant-design-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
-import { defineComponent } from 'vue-demi'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { defineComponent } from 'vue'
 import { useDesigner, usePrefix } from '../../hooks'
 import { useStyle } from '../../shared'
 import { IconWidget } from '../IconWidget'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { TreeNode } from '@designable/core'
 
 export interface IDragHandlerProps {

@@ -5,10 +5,10 @@ import {
   provide,
   ref,
   shallowRef,
-} from 'vue-demi'
+} from 'vue'
 import { Empty } from 'ant-design-vue'
 import { createForm } from '@formily/core'
-import { Form } from '@formily/antdv'
+import { Form } from '@shebao/antdv'
 import {
   IconWidget,
   NodePathWidget,
@@ -18,7 +18,7 @@ import {
   useSelected,
   useWorkbench,
   useEffect,
-} from '@formily/antdv-designable'
+} from '@shebao/antdv-designable'
 import { cancelIdle, requestIdle } from '@designable/shared'
 import { SchemaField } from './SchemaField'
 import { SettingsFormSymbol } from './shared/context'

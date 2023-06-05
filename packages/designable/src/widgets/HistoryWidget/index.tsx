@@ -1,5 +1,5 @@
 import format from 'dateformat'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { observer } from '@formily/reactive-vue'
 import { usePrefix, useWorkbench } from '../../hooks'
 import { TextWidget } from '../TextWidget'

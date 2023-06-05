@@ -1,13 +1,13 @@
-import { defineComponent, unref } from 'vue-demi'
-import { FormItem } from '@formily/antdv'
+import { defineComponent, unref } from 'vue'
+import { FormItem } from '@shebao/antdv'
 import { useField, FragmentComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { observable } from '@formily/reactive'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
-import { IconWidget, usePrefix } from '@formily/antdv-designable'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { IconWidget, usePrefix } from '@shebao/antdv-designable'
 import './styles.less'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 
 const ExpandedMap = new Map<string, boolean>()
 

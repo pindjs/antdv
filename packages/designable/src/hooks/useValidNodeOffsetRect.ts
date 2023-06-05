@@ -1,6 +1,6 @@
 /* eslint-disable */
 // TODO:: 还有问题
-import { ref } from 'vue-demi'
+import { ref } from 'vue'
 import { TreeNode } from '@designable/core'
 import { requestIdle, cancelIdle } from '@designable/shared'
 import { ResizeObserver } from '@juggle/resize-observer'

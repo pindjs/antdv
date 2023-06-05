@@ -1,14 +1,14 @@
-import { defineComponent, onBeforeUnmount, watch, shallowRef } from 'vue-demi'
+import { defineComponent, onBeforeUnmount, watch, shallowRef } from 'vue'
 import { Tooltip } from 'ant-design-vue'
 import { parseExpression, parse } from '@babel/parser'
 import { isNum, uid } from '@designable/shared'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import {
   TextWidget,
   IconWidget,
   usePrefix,
   useTheme,
-} from '@formily/antdv-designable'
+} from '@shebao/antdv-designable'
 import Editor, { loader } from '../MonacoEditor'
 import { format } from './format'
 import { initMonaco } from './config'
@@ -17,7 +17,7 @@ import './config'
 
 import type { EditorProps } from '../MonacoEditor'
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 
 export type Monaco = typeof monaco
 export interface MonacoInputProps extends EditorProps {

@@ -1,7 +1,7 @@
 import { isStr, isPlainObj } from '@designable/shared'
 import { GlobalRegistry } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import type { IDesignerMiniLocales } from '@designable/core'
 

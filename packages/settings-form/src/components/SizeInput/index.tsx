@@ -1,5 +1,5 @@
 import { InputNumber } from 'ant-design-vue'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { createPolyInput } from '../PolyInput'
 
 const takeNumber = (value: any) => {

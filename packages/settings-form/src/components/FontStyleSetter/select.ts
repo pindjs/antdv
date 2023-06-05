@@ -1,8 +1,8 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Select as AntSelect } from 'ant-design-vue'
 import { connect, mapProps, h, mapReadPretty } from '@formily/vue'
-import { PreviewText } from '@formily/antdv'
-import { resolveComponent } from '@formily/antdv/esm/__builtins__'
+import { PreviewText } from '@shebao/antdv'
+import { resolveComponent } from '@shebao/antdv/esm/__builtins__'
 import type { Select as AntSelectProps } from 'ant-design-vue'
 
 const AntOption = AntSelect.Option

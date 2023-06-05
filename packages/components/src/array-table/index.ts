@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed } from 'vue-demi'
+import { defineComponent, ref, computed } from 'vue'
 import { Table, Pagination, Select, Badge } from 'ant-design-vue'
 import {
   useField,
@@ -14,7 +14,7 @@ import { ArrayBase } from '../array-base'
 import { Space } from '../space'
 
 import type { VNode } from 'vue'
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 import type { GeneralField, FieldDisplayTypes, ArrayField } from '@formily/core'
 import type { Schema } from '@formily/json-schema'
 import type { Table as TableProps } from 'ant-design-vue/types/table/table'

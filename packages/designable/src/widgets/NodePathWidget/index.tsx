@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Breadcrumb } from 'ant-design-vue'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import { useCurrentNode, useSelection, usePrefix, useHover } from '../../hooks'

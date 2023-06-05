@@ -1,9 +1,9 @@
-# @formily/antdv-setters
+# @shebao/antdv-setters
 
 > Formily Designable Component Adaptor
 
 ## Install
 
 ```bash
-npm install @formily/antdv-setters --save
+npm install @shebao/antdv-setters --save
 ```

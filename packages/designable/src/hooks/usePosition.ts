@@ -1,7 +1,7 @@
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 import { useLayout } from './useLayout'
 
-import type { ComputedRef } from 'vue-demi'
+import type { ComputedRef } from 'vue'
 import type { IDesignerLayoutContext } from '../types'
 
 export const usePosition = (): ComputedRef<

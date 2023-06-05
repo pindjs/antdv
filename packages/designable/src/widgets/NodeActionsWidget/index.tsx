@@ -1,14 +1,14 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Button } from 'ant-design-vue'
 import { observer } from '@formily/reactive-vue'
-import { Space } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { Space } from '@shebao/antdv'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { usePrefix, useTreeNode, useSelected } from '../../hooks'
 import { IconWidget } from '../IconWidget'
 import { TextWidget } from '../TextWidget'
 import './styles.less'
 
-import type { VNode } from 'vue-demi'
+import type { VNode } from 'vue'
 
 export interface INodeActionsWidgetProps {
   activeShown?: boolean

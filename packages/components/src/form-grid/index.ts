@@ -1,21 +1,20 @@
+import type { IGridOptions } from '@formily/grid'
+import { Grid } from '@formily/grid'
+import { markRaw } from '@formily/reactive'
+import { observer } from '@formily/reactive-vue'
+import { h } from '@formily/vue'
+import type { InjectionKey, PropType, Ref } from 'vue'
 import {
+  computed,
   defineComponent,
+  inject,
+  onMounted,
   provide,
   ref,
-  inject,
-  computed,
   watchEffect,
-  onMounted,
-} from 'vue-demi'
-import { h } from '@formily/vue'
-import { observer } from '@formily/reactive-vue'
-import { markRaw } from '@formily/reactive'
-import { Grid } from '@formily/grid'
+} from 'vue'
 import { composeExport, usePrefixCls } from '../__builtins__'
 import { useFormLayout } from '../form-layout'
-
-import type { IGridOptions } from '@formily/grid'
-import type { InjectionKey, Ref, PropType } from 'vue-demi'
 
 export interface IFormGridProps extends IGridOptions {
   grid?: Grid<HTMLElement>
@@ -51,7 +50,7 @@ export const useGridColumn = (gridSpan = 1) => {
 }
 
 const FormGridInner = observer(
-  defineComponent<IFormGridProps>({
+  defineComponent({
     name: 'FormGrid',
     props: {
       columnGap: {
@@ -93,7 +92,7 @@ const FormGridInner = observer(
         type: Object as PropType<Grid<HTMLElement>>,
       },
     },
-    setup(props) {
+    setup(props, { slots }) {
       const layout = useFormLayout()
 
       const gridInstance = computed(() => {
@@ -110,7 +109,7 @@ const FormGridInner = observer(
         }
         return markRaw(options?.grid ? options.grid : new Grid(options))
       })
-      const prefixCls = usePrefixCls('formily-form-grid', props.prefixCls)
+      const prefixCls = usePrefixCls('formily-form-grid')
       const root = ref(null)
 
       provide(FormGridSymbol, gridInstance)
@@ -124,30 +123,24 @@ const FormGridInner = observer(
         })
       })
 
-      return {
-        prefixCls,
-        root,
-        gridInstance,
+      return () => {
+        return h(
+          'div',
+          {
+            attrs: {
+              class: `${prefixCls}`,
+            },
+            style: {
+              gridTemplateColumns: gridInstance.value.templateColumns,
+              gap: gridInstance.value.gap,
+            },
+            ref: 'root',
+          },
+          {
+            default: () => slots.default?.(),
+          }
+        )
       }
-    },
-    render() {
-      const { prefixCls, gridInstance } = this
-      return h(
-        'div',
-        {
-          attrs: {
-            class: `${prefixCls}`,
-          },
-          style: {
-            gridTemplateColumns: gridInstance.templateColumns,
-            gap: gridInstance.gap,
-          },
-          ref: 'root',
-        },
-        {
-          default: () => this.$slots.default,
-        }
-      )
     },
   })
 ) as any

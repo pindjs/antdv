@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { h } from '@vue/composition-api'
+import { h } from 'vue'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
 import {
@@ -76,7 +76,7 @@ import {
   Input,
   PreviewText,
   FormButtonGroup,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 import { Button } from 'ant-design-vue'
 
 const fields = createSchemaField({

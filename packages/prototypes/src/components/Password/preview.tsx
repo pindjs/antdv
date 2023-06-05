@@ -1,5 +1,5 @@
-import { Password as FormilyPassword } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { Password as FormilyPassword } from '@shebao/antdv'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { merge } from '@formily/shared'
 import { createFieldSchema } from '../Field'

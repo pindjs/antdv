@@ -1,4 +1,4 @@
-import { shallowRef, watch } from 'vue-demi'
+import { shallowRef, watch } from 'vue'
 import { SelectNodeEvent } from '@designable/core'
 import { toJS } from '@formily/reactive'
 // import { useSelected } from './useSelected'

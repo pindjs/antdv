@@ -1,20 +1,20 @@
 // import React, { useEffect, useRef } from 'react'
 import { CursorStatus, CursorType } from '@designable/core'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
-import { computed, defineComponent, onBeforeUnmount } from 'vue-demi'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { defineComponent, onBeforeUnmount, ref } from 'vue'
 import {
-  useViewport,
   useCursor,
   useDesigner,
-  usePrefix,
   useOperation,
+  usePrefix,
+  useViewport,
 } from '../../hooks'
 import { ResizeHandleType } from '../../simulators/ResponsiveSimulator/handle'
-import { Insertion } from './Insertion'
-import { Selection } from './Selection'
-import { FreeSelection } from './FreeSelection'
 import { Cover } from './Cover'
 import { DashedBox } from './DashedBox'
+import { FreeSelection } from './FreeSelection'
+import { Insertion } from './Insertion'
+import { Selection } from './Selection'
 import './styles.less'
 
 const setCursorState = (contentWindow: Window, state: string) => {
@@ -31,15 +31,15 @@ const setCursorState = (contentWindow: Window, state: string) => {
 const AuxToolWidgetComponent = defineComponent({
   name: 'DnAuxToolWidget',
   props: [],
-  setup(props, { refs }) {
+  setup() {
     const engineRef = useDesigner()
     const viewportRef = useViewport()
     const operationRef = useOperation()
     const cursorRef = useCursor()
-    const prefixRef = usePrefix('auxtool')
-    const _ref = computed<HTMLDivElement>(() => refs.ref as HTMLDivElement)
+    const prefixRef = usePrefix('aux-tool')
+    const _ref = ref<HTMLDivElement>()
 
-    const engineSubs: any = []
+    const engineSubs: any[] = []
 
     // [engine, viewport]
     const cb1 = engineRef.value.subscribeWith('viewport:scroll', () => {
@@ -57,7 +57,7 @@ const AuxToolWidgetComponent = defineComponent({
         } else {
           if (cursorRef.value.type === CursorType.Move) {
             if (operationRef.value.getDragNodes().length) {
-              // todo: update cusor will trigger document layout rerender https://bugs.chromium.org/p/chromium/issues/detail?id=664066
+              // todo: update cursor will trigger document layout rerender https://bugs.chromium.org/p/chromium/issues/detail?id=664066
               // if (viewportDragon.closestDirection === ClosestPosition.Inner) {
               //   setCursorState(viewport.contentWindow, 'copy')
               // } else {
@@ -81,14 +81,14 @@ const AuxToolWidgetComponent = defineComponent({
     engineSubs.push(cb1, cb2)
 
     onBeforeUnmount(() => {
-      engineSubs.map((enginecb) => enginecb())
+      engineSubs.map((engineCb) => engineCb())
     })
 
     return () => {
       if (!viewportRef.value) return null
 
       return (
-        <div ref="ref" class={prefixRef.value}>
+        <div ref={_ref} class={prefixRef.value}>
           <Insertion />
           <DashedBox />
           <Selection />

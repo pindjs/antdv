@@ -1,10 +1,10 @@
-import { defineComponent } from 'vue-demi'
-import { Button as AntButton } from 'ant-design-vue'
-import { h, useParentForm } from '@formily/vue'
-import { observer } from '@formily/reactive-vue'
-
 import type { IFieldResetOptions } from '@formily/core'
+import { observer } from '@formily/reactive-vue'
+import { h, useParentForm } from '@formily/vue'
+import { Button as AntButton } from 'ant-design-vue'
 import type { Button as IAntButton } from 'ant-design-vue/types/button/button'
+import { defineComponent } from 'vue'
+import { evalListener } from '../__builtins__'
 
 export type ResetProps = IFieldResetOptions & IAntButton
 
@@ -32,10 +32,9 @@ export const Reset = observer(
             attrs: context.attrs,
             on: {
               ...listeners,
-              click: (e: any) => {
-                if (listeners?.click) {
-                  if (listeners.click(e) === false) return
-                }
+              click: async (e: any) => {
+                const result = await evalListener(listeners.click, e)
+                if (result === false) return
                 form
                   ?.reset('*', {
                     forceClear: props.forceClear,

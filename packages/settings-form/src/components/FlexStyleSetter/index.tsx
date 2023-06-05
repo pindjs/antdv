@@ -1,8 +1,8 @@
-import { defineComponent, unref } from 'vue-demi'
+import { defineComponent, unref } from 'vue'
 import { Field, useField } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { Radio } from '@formily/antdv'
-import { usePrefix, IconWidget } from '@formily/antdv-designable'
+import { Radio } from '@shebao/antdv'
+import { usePrefix, IconWidget } from '@shebao/antdv-designable'
 import { InputItems } from '../InputItems'
 import './styles.less'
 

@@ -7,7 +7,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { createSchemaField, FormProvider } from '@formily/vue'
-import { FormItem, TreeSelect, Submit, Select } from '@formily/antdv'
+import { FormItem, TreeSelect, Submit, Select } from '@shebao/antdv'
 import { action } from '@formily/reactive'
 
 const loadData = async (field) => {

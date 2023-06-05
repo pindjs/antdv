@@ -1,7 +1,7 @@
-import { defineComponent, ref } from 'vue-demi'
+import { defineComponent, ref } from 'vue'
 import { Space, Radio, Button, Icon } from 'ant-design-vue'
 import { GlobalRegistry } from '@designable/core'
-import { useDesigner, useEffect, TextWidget } from '@formily/antdv-designable'
+import { useDesigner, useEffect, TextWidget } from '@shebao/antdv-designable'
 import { loadInitialSchema, saveSchema } from '../service'
 
 function useI18n() {

@@ -1,7 +1,7 @@
 import { IconWidget } from '../widgets/IconWidget'
 
 export const DragLeftSourceAnimation = {
-  light: (
+  light: () => (
     <IconWidget.ShadowSVG
       content={`
       <style>
@@ -55,7 +55,7 @@ export const DragLeftSourceAnimation = {
 `}
     />
   ),
-  dark: (
+  dark: () => (
     <IconWidget.ShadowSVG
       content={`
         <style>
@@ -112,7 +112,7 @@ export const DragLeftSourceAnimation = {
 }
 
 export const DragRightSourceAnimation = {
-  light: (
+  light: () => (
     <IconWidget.ShadowSVG
       content={`
 <style>
@@ -166,7 +166,7 @@ export const DragRightSourceAnimation = {
   `}
     />
   ),
-  dark: (
+  dark: () => (
     <IconWidget.ShadowSVG
       content={`
 <style>
@@ -222,7 +222,7 @@ export const DragRightSourceAnimation = {
 }
 
 export const BatchDragAnimation = {
-  light: (
+  light: () => (
     <IconWidget.ShadowSVG
       content={`
         <style>
@@ -279,7 +279,7 @@ export const BatchDragAnimation = {
           `}
     />
   ),
-  dark: (
+  dark: () => (
     <IconWidget.ShadowSVG
       content={`
         <style>

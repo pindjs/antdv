@@ -1,4 +1,4 @@
-import { defineComponent, unref } from 'vue-demi'
+import { defineComponent, unref } from 'vue'
 import { Select as ASelect } from 'ant-design-vue'
 import { GlobalRegistry } from '@designable/core'
 import { onFormInputChange } from '@formily/core'
@@ -13,12 +13,8 @@ import {
   Switch,
   Form,
   InputNumber,
-} from '@formily/antdv'
-import {
-  FoldItem,
-  DrawerSetter,
-  ValueInput,
-} from '@formily/antdv-settings-form'
+} from '@shebao/antdv'
+import { FoldItem, DrawerSetter, ValueInput } from '@shebao/antdv-settings-form'
 
 import type { ArrayField } from '@formily/core'
 import type { ISchema } from '@formily/json-schema'

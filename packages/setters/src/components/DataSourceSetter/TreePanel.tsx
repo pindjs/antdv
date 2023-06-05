@@ -1,17 +1,17 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Tree, Button } from 'ant-design-vue'
 import { GlobalRegistry } from '@designable/core'
 import { uid } from '@formily/shared'
 import { observer } from '@formily/reactive-vue'
 import { FragmentComponent } from '@formily/vue'
-import { IconWidget, TextWidget, usePrefix } from '@formily/antdv-designable'
+import { IconWidget, TextWidget, usePrefix } from '@shebao/antdv-designable'
 import { traverseTree } from './shared'
 import { Title } from './Title'
 import { Header } from './Header'
 import './styles.less'
 
 import type { ITreeDataSource, INodeItem } from './types'
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 
 export interface ITreePanelProps {
   treeDataSource: ITreeDataSource

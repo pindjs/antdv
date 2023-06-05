@@ -1,4 +1,4 @@
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 import { useOperation } from './useOperation'
 
 export const useHover = (workspaceId?: string) => {

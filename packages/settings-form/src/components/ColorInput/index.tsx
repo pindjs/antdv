@@ -1,7 +1,7 @@
-import { defineComponent, computed } from 'vue-demi'
+import { usePrefix } from '@shebao/antdv-designable'
 import { Input, Popover } from 'ant-design-vue'
+import { defineComponent, ref } from 'vue'
 import { Sketch as ColorPicker } from 'vue-color'
-import { usePrefix } from '@formily/antdv-designable'
 import './styles.less'
 
 export interface IColorInputProps {
@@ -17,14 +17,12 @@ export const ColorInput = defineComponent({
     popupProps: Object,
     colorPickerProps: Object,
   },
-  setup(props, { attrs, emit, refs }) {
+  setup(props, { attrs, emit }) {
     const prefixRef = usePrefix('color-input')
-    const containerRef = computed<HTMLDivElement>(
-      () => refs.container as HTMLDivElement
-    )
+    const containerRef = ref<HTMLDivElement>()
 
     return () => (
-      <div ref="container" class={prefixRef.value}>
+      <div ref={containerRef} class={prefixRef.value}>
         <Input
           value={props.value}
           placeholder="Color"

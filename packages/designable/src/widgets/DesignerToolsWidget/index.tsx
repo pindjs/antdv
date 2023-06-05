@@ -1,4 +1,4 @@
-import { defineComponent, reactive } from 'vue-demi'
+import { defineComponent, reactive } from 'vue'
 import { CursorType, ScreenType } from '@designable/core'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
@@ -14,7 +14,7 @@ import { useStyle } from '../../shared'
 import { IconWidget } from '../IconWidget'
 import './styles.less'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 
 type DesignerToolsType = 'HISTORY' | 'CURSOR' | 'SCREEN_TYPE'
 

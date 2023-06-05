@@ -1,6 +1,6 @@
 import { TreeSelect } from 'ant-design-vue'
-import { defineComponent } from 'vue-demi'
-import { useCurrentNode } from '@formily/antdv-designable'
+import { defineComponent } from 'vue'
+import { useCurrentNode } from '@shebao/antdv-designable'
 import type { TreeSelectProps } from 'ant-design-vue/es/tree-select/interface'
 import type { TreeNode } from '@designable/core'
 

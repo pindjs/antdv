@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Button, Drawer, Space } from 'ant-design-vue'
 import { Portal, PortalTarget } from 'portal-vue'
 import { createForm } from '@formily/core'

@@ -1,19 +1,18 @@
-import { defineComponent, reactive, computed } from 'vue-demi'
-import { Tabs, Badge } from 'ant-design-vue'
+import type { Schema, SchemaKey } from '@formily/json-schema'
 import { model } from '@formily/reactive'
 import { observer } from '@formily/reactive-vue'
 import {
+  Fragment,
+  RecursionField,
   h,
   useField,
   useFieldSchema,
-  RecursionField,
-  Fragment,
 } from '@formily/vue'
-import { composeExport, usePrefixCls } from '../__builtins__'
-
-import type { Schema, SchemaKey } from '@formily/json-schema'
-import type { Tabs as TabsProps } from 'ant-design-vue/types/tabs/tabs'
+import { Badge, Tabs } from 'ant-design-vue'
 import type { TabPane as TabPaneProps } from 'ant-design-vue/types/tabs/tab-pane'
+import type { Tabs as TabsProps } from 'ant-design-vue/types/tabs/tabs'
+import { computed, defineComponent, reactive } from 'vue'
+import { composeExport, evalListener, usePrefixCls } from '../__builtins__'
 
 const { TabPane } = Tabs
 
@@ -143,7 +142,7 @@ const FormTabInner = observer(
             on: {
               ...listeners,
               change: (key) => {
-                listeners.change?.(key)
+                evalListener(listeners.change, key)
                 formTab.setActiveKey?.(key)
               },
             },

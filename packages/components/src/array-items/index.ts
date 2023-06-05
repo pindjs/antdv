@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { SlickList, SlickItem } from 'vue-slicksort'
 import { useField, useFieldSchema, RecursionField, h } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'

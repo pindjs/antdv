@@ -1,4 +1,4 @@
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 import { useDesigner } from './useDesigner'
 import { useTreeNode } from './useTreeNode'
 import type { TreeNode } from '@designable/core'

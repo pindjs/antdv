@@ -3,9 +3,9 @@
  * Todo: JSON、富文本，公式
  */
 import { Select, Popover, Button } from 'ant-design-vue'
-import { InputNumber, Input } from '@formily/antdv'
-import { TextWidget } from '@formily/antdv-designable'
-import { defineComponent } from 'vue-demi'
+import { InputNumber, Input } from '@shebao/antdv'
+import { TextWidget } from '@shebao/antdv-designable'
+import { defineComponent } from 'vue'
 import { createPolyInput } from '../PolyInput'
 import { MonacoInput } from '../MonacoInput'
 

@@ -1,6 +1,6 @@
-import { defineComponent, ref } from 'vue-demi'
+import { defineComponent, ref } from 'vue'
 import { Input, Upload, Icon } from 'ant-design-vue'
-import { usePrefix, IconWidget, useContext } from '@formily/antdv-designable'
+import { usePrefix, IconWidget, useContext } from '@shebao/antdv-designable'
 import { SettingsFormSymbol } from '../../shared/context'
 import './styles.less'
 

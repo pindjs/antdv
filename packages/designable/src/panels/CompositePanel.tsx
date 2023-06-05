@@ -1,17 +1,10 @@
-import {
-  defineComponent,
-  getCurrentInstance,
-  ref,
-  unref,
-  watch,
-} from 'vue-demi'
 import { isValid } from '@designable/shared'
 import { FragmentComponent } from '@formily/vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import type { VNode } from 'vue'
+import { defineComponent, ref, unref, watch } from 'vue'
 import { usePrefix } from '../hooks'
 import { IconWidget, TextWidget } from '../widgets'
-
-import type { VNode } from 'vue-demi'
 
 export interface ICompositePanelProps {
   direction?: 'left' | 'right'
@@ -70,17 +63,15 @@ export const CompositePanelComponent = defineComponent({
     direction: String,
     onChange: Function,
   },
-  setup(props) {
-    const { slots } = getCurrentInstance()
+  setup(props, { slots }) {
     const prefixRef = usePrefix('composite-panel')
 
     const activeKey = ref(
-      props.defaultActiveKey ??
-        getDefaultKey(slots.default as unknown as VNode[])
+      props.defaultActiveKey ?? getDefaultKey(slots.default())
     )
 
     // 获取所有子组件
-    const items = parseItems(slots.default as unknown as VNode[])
+    const items = parseItems(slots.default())
     const pinning = ref(props.defaultPinning ?? false)
     const visible = ref(props.defaultOpen ?? true)
 

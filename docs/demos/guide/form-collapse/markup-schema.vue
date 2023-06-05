@@ -86,7 +86,7 @@ import {
   Submit,
   Input,
   Form,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 import { Button } from 'ant-design-vue'
 
 const SchemaField = createSchemaField({

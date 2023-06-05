@@ -1,5 +1,5 @@
-import { defineComponent } from 'vue-demi'
-import { DroppableWidget } from '@formily/antdv-designable'
+import { defineComponent } from 'vue'
+import { DroppableWidget } from '@shebao/antdv-designable'
 import { uid } from '@designable/shared'
 import './styles.less'
 

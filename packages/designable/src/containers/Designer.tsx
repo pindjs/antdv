@@ -5,7 +5,7 @@ import {
   ref,
   toRef,
   watchEffect,
-} from 'vue-demi'
+} from 'vue'
 import { GlobalRegistry } from '@designable/core'
 import { DesignerEngineSymbol } from '../context'
 import { GhostWidget } from '../widgets'
@@ -13,7 +13,7 @@ import { useDesigner } from '../hooks/useDesigner'
 import * as icons from '../icons'
 import { Layout } from './Layout'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { IDesignerProps } from '../types'
 import type { Engine } from '@designable/core'
 

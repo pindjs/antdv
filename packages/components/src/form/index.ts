@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { FormProvider as _FormProvider, h, useForm } from '@formily/vue'
 import { FormLayout } from '../form-layout'
 import { PreviewText } from '../preview-text'

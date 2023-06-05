@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import type { ComponentRenderProxy, VNode } from 'vue-demi'
+import type { ComponentRenderProxy, VNode } from 'vue'
 
 type ReservedProps = {
   key?: string | number | symbol

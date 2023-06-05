@@ -1,4 +1,4 @@
-import { computed } from 'vue-demi'
+import { computed } from 'vue'
 import { useCurrentNode } from './useSelectedNode'
 import { useSelected } from './useSelected'
 

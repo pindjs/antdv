@@ -8,7 +8,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/vue'
-import { Form, FormItem, Radio, Submit } from '@formily/antdv'
+import { Form, FormItem, Radio, Submit } from '@shebao/antdv'
 
 const { SchemaField } = createSchemaField({
   components: {

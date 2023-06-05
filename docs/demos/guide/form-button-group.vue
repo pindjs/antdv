@@ -34,7 +34,7 @@ import {
   FormItem,
   Input,
   Select,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 const fields = createSchemaField({ components: { FormItem, Input, Select } })
 

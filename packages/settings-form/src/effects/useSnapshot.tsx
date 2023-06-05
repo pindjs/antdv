@@ -1,6 +1,6 @@
 import { onFieldInputValueChange } from '@formily/core'
 import type { Operation } from '@designable/core'
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 let timeRequest = null
 
 export const useSnapshot = (operation: Operation, keyup: Ref<boolean>) => {

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { h } from '@formily/vue'
 import { usePrefixCls } from '../__builtins__'
 import { useFormLayout } from '../form-layout'

@@ -1,5 +1,5 @@
 import type { TreeNode } from '@designable/core'
-import type { InjectionKey, Ref } from 'vue-demi'
+import type { InjectionKey, Ref } from 'vue'
 
 interface INodeContext {
   renderTitle?: (node: TreeNode) => any

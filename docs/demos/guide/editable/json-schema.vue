@@ -17,7 +17,7 @@ import {
   Input,
   DatePicker,
   Editable,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 const { SchemaField } = createSchemaField({
   components: {

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Row } from 'ant-design-vue'
 import { TreeNode, createResource } from '@designable/core'
 import {
@@ -6,10 +6,10 @@ import {
   TreeNodeWidget,
   DroppableWidget,
   useNodeIdProps,
-} from '@formily/antdv-designable'
-import { ArrayBase } from '@formily/antdv'
+} from '@shebao/antdv-designable'
+import { ArrayBase } from '@shebao/antdv'
 import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { uid } from '@designable/shared'
 import {
   queryNodesByComponentPath,

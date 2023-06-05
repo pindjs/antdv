@@ -15,7 +15,7 @@ module.exports = (api) => {
       [
         '@vue/babel-preset-jsx',
         {
-          compositionAPI: 'vue-demi',
+          compositionAPI: true,
         },
       ],
       '@babel/preset-typescript',

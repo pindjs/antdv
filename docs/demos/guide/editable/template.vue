@@ -75,7 +75,7 @@ import {
   Input,
   DatePicker,
   Editable,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 export default {
   components: {

@@ -1,6 +1,6 @@
-import { inject, ref } from 'vue-demi'
+import { inject, ref } from 'vue'
 import type { TreeNode, Engine } from '@designable/core'
-import type { InjectionKey, Ref } from 'vue-demi'
+import type { InjectionKey, Ref } from 'vue'
 import type {
   IDesignerLayoutContext,
   IWorkspaceContext,

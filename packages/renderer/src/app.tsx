@@ -1,54 +1,53 @@
-import { defineComponent } from '@vue/composition-api'
+import { GlobalRegistry, createDesigner } from '@designable/core'
 import {
-  Designer,
   ComponentTreeWidget,
-  SettingsPanel,
-  ViewToolsWidget,
-  Workbench,
-  StudioPanel,
   CompositePanel,
-  WorkspacePanel,
-  ResourceWidget,
-  ToolbarPanel,
+  Designer,
   DesignerToolsWidget,
-  ViewportPanel,
-  OutlineTreeWidget,
-  ViewPanel,
   HistoryWidget,
-} from '@formily/antdv-designable'
-import { createDesigner, GlobalRegistry } from '@designable/core'
-
-import { SettingsForm } from '@formily/antdv-settings-form'
+  OutlineTreeWidget,
+  ResourceWidget,
+  SettingsPanel,
+  StudioPanel,
+  ToolbarPanel,
+  ViewPanel,
+  ViewToolsWidget,
+  ViewportPanel,
+  Workbench,
+  WorkspacePanel,
+} from '@shebao/antdv-designable'
 import {
-  Form,
-  Field,
-  Input,
-  Select,
-  TreeSelect,
+  ArrayCards,
+  ArrayItems,
+  ArrayTable,
+  Card,
   Cascader,
-  Radio,
   Checkbox,
-  Transfer,
-  Password,
   DatePicker,
-  TimePicker,
-  Upload,
+  Field,
+  Form,
+  FormCollapse,
+  FormGrid,
+  FormLayout,
+  FormTab,
+  Input,
+  InputNumber,
+  ObjectContainer,
+  Password,
+  Radio,
+  Select,
+  Space,
   Switch,
   Text,
-  Card,
-  ArrayCards,
-  ArrayTable,
-  ArrayItems,
-  ObjectContainer,
-  Space,
-  FormTab,
-  FormCollapse,
-  FormLayout,
-  FormGrid,
-  InputNumber,
-} from '@formily/antdv-prototypes'
-import SchemaEditorWidget from './widgets/schema-editor-widget'
+  TimePicker,
+  Transfer,
+  TreeSelect,
+  Upload,
+} from '@shebao/antdv-prototypes'
+import { SettingsForm } from '@shebao/antdv-settings-form'
+import { defineComponent } from 'vue'
 import PreviewWidget from './widgets/preview-widget'
+import SchemaEditorWidget from './widgets/schema-editor-widget'
 
 GlobalRegistry.registerDesignerLocales({
   'zh-CN': {
@@ -68,145 +67,144 @@ GlobalRegistry.registerDesignerLocales({
     },
   },
 })
-export default defineComponent({
+export const App = defineComponent({
   setup() {
     const engine = createDesigner({
       shortcuts: [],
       rootComponentName: 'Form',
     })
-    return {
-      engine,
-      components: {
-        Form,
-        Field,
+    const sources = {
+      Inputs: [
         Input,
+        Password,
+        InputNumber,
+        Switch,
+        Checkbox,
+        Radio,
+        DatePicker,
+        TimePicker,
         Select,
         TreeSelect,
         Cascader,
-        Radio,
-        Checkbox,
         Transfer,
-        Password,
-        DatePicker,
-        TimePicker,
         Upload,
-        Switch,
-        InputNumber,
-        Text,
-        FormGrid,
-        Card,
-        Space,
-        FormCollapse,
-        FormTab,
-        FormLayout,
-        ArrayCards,
-        ArrayTable,
-        ArrayItems,
         ObjectContainer,
-      },
-      sources: {
-        Inputs: [
-          Input,
-          Password,
-          InputNumber,
-          Switch,
-          Checkbox,
-          Radio,
-          DatePicker,
-          TimePicker,
-          Select,
-          TreeSelect,
-          Cascader,
-          Transfer,
-          Upload,
-          ObjectContainer,
-        ],
-        Layouts: [FormGrid, FormTab, FormLayout, FormCollapse, Space],
-        Arrays: [ArrayCards, ArrayItems, ArrayTable],
-        Displays: [Text],
-      },
+      ],
+      Layouts: [FormGrid, FormTab, FormLayout, FormCollapse, Space],
+      Arrays: [ArrayCards, ArrayItems, ArrayTable],
+      Displays: [Text],
+    }
+    const components = {
+      Form,
+      Field,
+      Input,
+      Select,
+      TreeSelect,
+      Cascader,
+      Radio,
+      Checkbox,
+      Transfer,
+      Password,
+      DatePicker,
+      TimePicker,
+      Upload,
+      Switch,
+      InputNumber,
+      Text,
+      FormGrid,
+      Card,
+      Space,
+      FormCollapse,
+      FormTab,
+      FormLayout,
+      ArrayCards,
+      ArrayTable,
+      ArrayItems,
+      ObjectContainer,
+    }
+    return () => {
+      return (
+        <Designer engine={engine}>
+          <Workbench>
+            <StudioPanel
+              scopedSlots={{
+                logo: () => <logo-widget />,
+                actions: () => <actions-widget />,
+              }}
+            >
+              <CompositePanel>
+                <CompositePanel.Item title="panels.Component" icon="Component">
+                  <ResourceWidget
+                    title="sources.Inputs"
+                    sources={sources.Inputs}
+                  />
+                  <ResourceWidget
+                    title="sources.Layouts"
+                    sources={sources.Layouts}
+                  />
+                  <ResourceWidget
+                    title="sources.Arrays"
+                    sources={sources.Arrays}
+                  />
+                  <ResourceWidget
+                    title="sources.Displays"
+                    sources={sources.Displays}
+                  />
+                </CompositePanel.Item>
+                <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
+                  <OutlineTreeWidget />
+                </CompositePanel.Item>
+                <CompositePanel.Item title="panels.History" icon="History">
+                  <HistoryWidget />
+                </CompositePanel.Item>
+              </CompositePanel>
+              <WorkspacePanel>
+                <ToolbarPanel>
+                  <DesignerToolsWidget></DesignerToolsWidget>
+                  <ViewToolsWidget
+                    use={['DESIGNABLE', 'JSONTREE', 'PREVIEW']}
+                  />
+                </ToolbarPanel>
+                <ViewportPanel>
+                  <ViewPanel type="DESIGNABLE">
+                    <ComponentTreeWidget
+                      components={components}
+                    ></ComponentTreeWidget>
+                  </ViewPanel>
+                  <ViewPanel
+                    type="JSONTREE"
+                    scrollable={false}
+                    scopedSlots={{
+                      default: (tree, onChange) => (
+                        <SchemaEditorWidget
+                          tree={tree}
+                          onChange={onChange}
+                        ></SchemaEditorWidget>
+                      ),
+                    }}
+                  ></ViewPanel>
+                  <ViewPanel
+                    type="PREVIEW"
+                    scrollable={false}
+                    scopedSlots={{
+                      default: (tree) => (
+                        <PreviewWidget tree={tree}></PreviewWidget>
+                      ),
+                    }}
+                  ></ViewPanel>
+                </ViewportPanel>
+              </WorkspacePanel>
+              <SettingsPanel title="panels.PropertySettings">
+                <SettingsForm
+                  uploadAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                  headers={{}}
+                ></SettingsForm>
+              </SettingsPanel>
+            </StudioPanel>
+          </Workbench>
+        </Designer>
+      )
     }
   },
-  render() {
-    const { engine, sources, components } = this
-    return (
-      <Designer engine={engine}>
-        <Workbench>
-          <StudioPanel
-            scopedSlots={{
-              logo: () => <logo-widget />,
-              actions: () => <actions-widget />,
-            }}
-          >
-            <CompositePanel>
-              <CompositePanel.Item title="panels.Component" icon="Component">
-                <ResourceWidget
-                  title="sources.Inputs"
-                  sources={sources.Inputs}
-                />
-                <ResourceWidget
-                  title="sources.Layouts"
-                  sources={sources.Layouts}
-                />
-                <ResourceWidget
-                  title="sources.Arrays"
-                  sources={sources.Arrays}
-                />
-                <ResourceWidget
-                  title="sources.Displays"
-                  sources={sources.Displays}
-                />
-              </CompositePanel.Item>
-              <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
-                <OutlineTreeWidget />
-              </CompositePanel.Item>
-              <CompositePanel.Item title="panels.History" icon="History">
-                <HistoryWidget />
-              </CompositePanel.Item>
-            </CompositePanel>
-            <WorkspacePanel>
-              <ToolbarPanel>
-                <DesignerToolsWidget></DesignerToolsWidget>
-                <ViewToolsWidget use={['DESIGNABLE', 'JSONTREE', 'PREVIEW']} />
-              </ToolbarPanel>
-              <ViewportPanel>
-                <ViewPanel type="DESIGNABLE">
-                  <ComponentTreeWidget
-                    components={components}
-                  ></ComponentTreeWidget>
-                </ViewPanel>
-                <ViewPanel
-                  type="JSONTREE"
-                  scrollable={false}
-                  scopedSlots={{
-                    default: (tree, onChange) => (
-                      <SchemaEditorWidget
-                        tree={tree}
-                        onChange={onChange}
-                      ></SchemaEditorWidget>
-                    ),
-                  }}
-                ></ViewPanel>
-                <ViewPanel
-                  type="PREVIEW"
-                  scrollable={false}
-                  scopedSlots={{
-                    default: (tree) => (
-                      <PreviewWidget tree={tree}></PreviewWidget>
-                    ),
-                  }}
-                ></ViewPanel>
-              </ViewportPanel>
-            </WorkspacePanel>
-            <SettingsPanel title="panels.PropertySettings">
-              <SettingsForm
-                uploadAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                headers={{}}
-              ></SettingsForm>
-            </SettingsPanel>
-          </StudioPanel>
-        </Workbench>
-      </Designer>
-    )
-  },
 })
+export default App

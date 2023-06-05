@@ -54,7 +54,7 @@
 <script>
 import { createForm } from '@formily/core'
 import { FormProvider, createSchemaField } from '@formily/vue'
-import { FormLayout, FormItem, PreviewText } from '@formily/antdv'
+import { FormLayout, FormItem, PreviewText } from '@shebao/antdv'
 
 const fields = createSchemaField({
   components: {

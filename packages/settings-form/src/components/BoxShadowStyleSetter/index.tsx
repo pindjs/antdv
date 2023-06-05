@@ -1,5 +1,5 @@
-import { unref, defineComponent } from 'vue-demi'
-import { usePrefix } from '@formily/antdv-designable'
+import { unref, defineComponent } from 'vue'
+import { usePrefix } from '@shebao/antdv-designable'
 import { useField } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { FoldItem } from '../FoldItem'

@@ -1,5 +1,5 @@
 import cls from 'classnames'
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { usePrefix } from '../../hooks'
 import './styles.less'
 // export interface IPCSimulatorProps extends HTMLDivElement {

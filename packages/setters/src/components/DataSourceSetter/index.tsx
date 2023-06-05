@@ -1,14 +1,14 @@
-import { defineComponent, ref, watch, reactive } from 'vue-demi'
+import { defineComponent, ref, watch, reactive } from 'vue'
 import { Modal, Button, Space } from 'ant-design-vue'
 import { FragmentComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { usePrefix, useTheme, TextWidget } from '@formily/antdv-designable'
+import { usePrefix, useTheme, TextWidget } from '@shebao/antdv-designable'
 import { DataSettingPanel } from './DataSettingPanel'
 import { TreePanel } from './TreePanel'
 import { transformDataToValue, transformValueToData } from './shared'
 import './styles.less'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { Form } from '@formily/core'
 import type { IDataSourceItem, INodeItem } from './types'
 

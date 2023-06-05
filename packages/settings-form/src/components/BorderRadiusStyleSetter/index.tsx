@@ -1,5 +1,5 @@
-import { IconWidget } from '@formily/antdv-designable'
-import { defineComponent } from 'vue-demi'
+import { IconWidget } from '@shebao/antdv-designable'
+import { defineComponent } from 'vue'
 import { BoxStyleSetter } from '../BoxStyleSetter'
 export interface IBorderRadiusStyleSetterProps {
   value?: string

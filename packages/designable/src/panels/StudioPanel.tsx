@@ -1,8 +1,8 @@
-import { defineComponent, unref } from 'vue-demi'
+import { defineComponent, unref } from 'vue'
 import { Layout } from '../containers'
 import { usePrefix, usePosition } from '../hooks'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { IDesignerLayoutProps } from '../types'
 
 export interface IStudioPanelProps {

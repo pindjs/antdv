@@ -1,6 +1,6 @@
-import { defineComponent, ref, unref, watch } from 'vue-demi'
+import { defineComponent, ref, unref, watch } from 'vue'
 import { Button } from 'ant-design-vue'
-import { usePrefix, IconWidget } from '@formily/antdv-designable'
+import { usePrefix, IconWidget } from '@shebao/antdv-designable'
 import './styles.less'
 
 export interface IInput {

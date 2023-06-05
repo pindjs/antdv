@@ -1,15 +1,14 @@
-import { computed, defineComponent, nextTick, ref, unref } from 'vue-demi'
-import { Button } from 'ant-design-vue'
+import type { TreeNode } from '@designable/core'
 import { reaction } from '@formily/reactive'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { Button } from 'ant-design-vue'
+import { defineComponent, nextTick, ref } from 'vue'
 import { usePrefix, useViewport } from '../../hooks'
 import { useEffect } from '../../shared/useEffect'
-import { Selector } from './Selector'
 import { Copy } from './Copy'
 import { Delete } from './Delete'
 import { DragHandler } from './DragHandler'
-
-import type { TreeNode } from '@designable/core'
+import { Selector } from './Selector'
 
 const HELPER_DEBOUNCE_TIMEOUT = 100
 
@@ -29,13 +28,11 @@ export interface IViewportState {
 
 const HelpersComponent = defineComponent({
   props: ['node', 'nodeRect'],
-  setup(props, { refs }) {
+  setup(props) {
     const prefixRef = usePrefix('aux-helpers')
     const viewportRef = useViewport()
     const unmountRef = ref(false)
-    const refContainer = computed<HTMLDivElement>(
-      () => refs.ref as HTMLDivElement
-    )
+    const refContainer = ref<HTMLDivElement>()
     const positionRef = ref('top-right')
 
     useEffect(
@@ -120,7 +117,7 @@ const HelpersComponent = defineComponent({
               [positionRef.value]: true,
             },
           ]}
-          ref="ref"
+          ref={refContainer}
         >
           <div class={prefixRef.value + '-content'}>
             <Selector node={node} />

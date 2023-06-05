@@ -1,9 +1,9 @@
-# @formily/antdv-renderer
+# @shebao/antdv-renderer
 
 > Formily Designable Settings Form
 
 ## Install
 
 ```bash
-npm install @formily/antdv-renderer --save
+npm install @shebao/antdv-renderer --save
 ```

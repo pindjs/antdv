@@ -1,4 +1,4 @@
-import { shallowRef } from 'vue-demi'
+import { shallowRef } from 'vue'
 import loader from '@monaco-editor/loader'
 
 import type { Nullable, MonacoEditor } from '../types'

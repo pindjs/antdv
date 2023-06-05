@@ -1,9 +1,9 @@
-import { defineComponent, ref, onMounted } from 'vue-demi'
+import { defineComponent, ref, onMounted } from 'vue'
 import { Button } from 'ant-design-vue'
 import { observer } from '@formily/reactive-vue'
 import { useField, FragmentComponent } from '@formily/vue'
-import { FormLayout } from '@formily/antdv'
-import { IconWidget, usePrefix } from '@formily/antdv-designable'
+import { FormLayout } from '@shebao/antdv'
+import { IconWidget, usePrefix } from '@shebao/antdv-designable'
 import './styles.less'
 
 export const DrawerSetter = observer(

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { isStr } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
 import { useTreeNode, useNodeIdProps } from '../../hooks'
@@ -6,7 +6,7 @@ import { NodeTitleWidget } from '../NodeTitleWidget'
 import { NodeActionsWidget } from '../NodeActionsWidget'
 import './styles.less'
 
-import type { PropType } from 'vue-demi'
+import type { PropType } from 'vue'
 import type { TreeNode } from '@designable/core'
 import type { INodeActionsWidgetActionProps } from '../NodeActionsWidget'
 

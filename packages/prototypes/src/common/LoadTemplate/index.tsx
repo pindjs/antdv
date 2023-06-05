@@ -1,5 +1,5 @@
-import { defineComponent } from 'vue-demi'
-import { NodeActionsWidget } from '@formily/antdv-designable'
+import { defineComponent } from 'vue'
+import { NodeActionsWidget } from '@shebao/antdv-designable'
 
 import type { VNode } from 'vue'
 

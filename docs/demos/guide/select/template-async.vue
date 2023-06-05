@@ -38,7 +38,7 @@
 import { createForm, onFieldReact } from '@formily/core'
 import { Field } from '@formily/vue'
 import { action } from '@formily/reactive'
-import { Form, FormItem, Select, Submit, Reset } from '@formily/antdv'
+import { Form, FormItem, Select, Submit, Reset } from '@shebao/antdv'
 
 const useAsyncDataSource = (pattern, service) => {
   onFieldReact(pattern, (field) => {

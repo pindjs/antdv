@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { useStyle } from '../shared/util'
 import { WorkspacePanel } from './WorkspacePanel'
 

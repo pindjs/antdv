@@ -1,5 +1,5 @@
 {
-  "name": "@formily/antdv-settings-form",
+  "name": "@shebao/antdv-settings-form",
   "version": "1.0.0-alpha.0",
   "license": "MIT",
   "main": "lib",
@@ -45,8 +45,8 @@
     "@designable/core": "^1.0.0-beta.45",
     "@designable/formily-transformer": "^1.0.0-beta.45",
     "@designable/shared": "^1.0.0-beta.45",
-    "@formily/antdv": "^1.0.0-alpha.8",
-    "@formily/antdv-designable": "1.0.0-alpha.0",
+    "@shebao/antdv": "^1.0.0-alpha.8",
+    "@shebao/antdv-designable": "1.0.0-alpha.0",
     "@formily/reactive": "^2.0.0",
     "@formily/reactive-vue": "^2.0.0",
     "@formily/shared": "^2.0.0",

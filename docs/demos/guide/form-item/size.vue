@@ -107,7 +107,7 @@ import {
   Switch,
   InputNumber,
   Radio,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 const Div = {
   functional: true,

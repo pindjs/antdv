@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { CursorStatus, CursorType } from '@designable/core'
 import { calcRectByStartEndPoint, isNum } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'

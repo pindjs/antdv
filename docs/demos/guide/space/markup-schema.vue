@@ -100,7 +100,7 @@ import {
   Space,
   FormButtonGroup,
   Submit,
-} from '@formily/antdv'
+} from '@shebao/antdv'
 
 const fields = createSchemaField({
   components: { FormItem, FormLayout, Input, Space },

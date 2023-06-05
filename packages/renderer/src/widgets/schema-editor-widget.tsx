@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue-demi'
+import { defineComponent, computed } from 'vue'
 import {
   transformToSchema,
   transformToTreeNode,
@@ -12,7 +12,7 @@ import 'codemirror/mode/javascript/javascript'
 
 export default defineComponent({
   name: 'DnSchemaEditorWidget',
-  props: ['tree'],
+  props: ['tree', 'onChange'],
   emits: ['change'],
   setup(props, { emit }) {
     const code = computed(() => {

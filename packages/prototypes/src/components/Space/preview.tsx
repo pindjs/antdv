@@ -1,5 +1,5 @@
-import { Space as FormilySpace } from '@formily/antdv'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { Space as FormilySpace } from '@shebao/antdv'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { createBehavior, createResource } from '@designable/core'
 import { createVoidFieldSchema } from '../Field'
 import { withContainer } from '../../common/Container'

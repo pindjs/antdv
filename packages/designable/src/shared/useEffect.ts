@@ -1,5 +1,5 @@
-import { onBeforeUnmount, watch } from 'vue-demi'
-import type { WatchSource } from 'vue-demi'
+import { onBeforeUnmount, watch } from 'vue'
+import type { WatchSource } from 'vue'
 
 export function useEffect(
   func: () => void | (() => void | null),

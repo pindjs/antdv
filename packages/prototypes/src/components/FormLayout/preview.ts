@@ -1,6 +1,6 @@
-import { FormLayout as FormilyFormLayout } from '@formily/antdv'
+import { FormLayout as FormilyFormLayout } from '@shebao/antdv'
 import { createBehavior, createResource } from '@designable/core'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
 import { withContainer } from '../../common/Container'
 import { createVoidFieldSchema } from '../Field'
 import { AllSchemas } from '../../schemas'

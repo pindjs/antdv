@@ -1,4 +1,4 @@
-import { MonacoInput, getNpmCDNRegistry } from '@formily/antdv-settings-form'
+import { MonacoInput, getNpmCDNRegistry } from '@shebao/antdv-settings-form'
 
 export interface IDependency {
   name: string

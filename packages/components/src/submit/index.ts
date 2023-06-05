@@ -1,10 +1,11 @@
-import { defineComponent } from 'vue-demi'
+import { defineComponent } from 'vue'
 import { Button as AntButton } from 'ant-design-vue'
 import { h, useParentForm } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 
 import type { IFormFeedback } from '@formily/core'
 import type { Button as ButtonProps } from 'ant-design-vue/types/button/button'
+import { evalListener } from '../__builtins__'
 
 export interface ISubmitProps extends ButtonProps {
   onClick?: (e: MouseEvent) => any
@@ -41,10 +42,9 @@ export const Submit = observer(
             },
             on: {
               ...listeners,
-              click: (e: any) => {
-                if (onClick) {
-                  if (onClick(e) === false) return
-                }
+              click: async (e: any) => {
+                const result = await evalListener(onClick, e)
+                if (result === false) return
                 if (onSubmit) {
                   form
                     ?.submit(onSubmit as (e: any) => void)

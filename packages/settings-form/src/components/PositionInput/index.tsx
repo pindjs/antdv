@@ -1,7 +1,7 @@
-import { usePrefix } from '@formily/antdv-designable'
+import { usePrefix } from '@shebao/antdv-designable'
 import cls from 'classnames'
 import './styles.less'
-import { defineComponent, ref, unref, watch } from 'vue-demi'
+import { defineComponent, ref, unref, watch } from 'vue'
 
 export interface IPositionInputProps {
   value?: string

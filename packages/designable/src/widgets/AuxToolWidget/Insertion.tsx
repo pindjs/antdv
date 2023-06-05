@@ -1,7 +1,7 @@
 import { ClosestPosition } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@formily/antdv/esm/__builtins__'
-import { defineComponent } from 'vue-demi'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { defineComponent } from 'vue'
 import { isNum } from '@designable/shared'
 import { useDragon, usePrefix } from '../../hooks'
 

@@ -5,7 +5,7 @@ import {
   onBeforeUnmount,
   watch,
   provide,
-} from 'vue-demi'
+} from 'vue'
 import { Tooltip, Popover, Icon } from 'ant-design-vue'
 import ResizeObserver from 'resize-observer-polyfill'
 import { isVoidField } from '@formily/core'
@@ -14,7 +14,7 @@ import { composeExport, resolveComponent, usePrefixCls } from '../__builtins__'
 import { useFormLayout, FormLayoutShallowContext } from '../form-layout'
 
 import type { Component } from 'vue'
-import type { Ref } from 'vue-demi'
+import type { Ref } from 'vue'
 
 export type FormItemProps = {
   className?: string
@@ -141,7 +141,7 @@ export const FormBaseItem = defineComponent<FormItemProps>({
     bordered: { default: true },
     inset: { default: false },
   },
-  setup(props, { attrs, slots, refs }) {
+  setup(props, { attrs, slots }) {
     const active = ref(false)
     const deepLayoutRef = useFormLayout()
 
@@ -150,12 +150,8 @@ export const FormBaseItem = defineComponent<FormItemProps>({
       attrs.prefixCls as string
     )
 
-    const containerRef = ref(null)
+    const containerRef = ref()
     const overflow = useOverflow(containerRef)
-
-    onMounted(() => {
-      containerRef.value = refs.labelContainer
-    })
 
     provide(FormLayoutShallowContext, ref(null))
 
@@ -269,7 +265,7 @@ export const FormBaseItem = defineComponent<FormItemProps>({
           'div',
           {
             class: `${prefixCls}-label-content`,
-            ref: 'labelContainer',
+            ref: containerRef,
           },
           {
             default: () => [

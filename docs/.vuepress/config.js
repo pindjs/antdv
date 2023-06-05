@@ -68,7 +68,7 @@ module.exports = {
     return {
       resolve: {
         alias: {
-          '@formily/antdv': path.resolve(
+          '@shebao/antdv': path.resolve(
             __dirname,
             '../../packages/components/src'
           ),

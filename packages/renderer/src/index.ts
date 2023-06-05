@@ -1,15 +1,14 @@
 import './styles.less'
 import Vue from 'vue'
-import VueCompositionAPI from '@vue/composition-api'
 import App from './app'
+import 'ant-design-vue/dist/antd.css'
 
 import WidgetsInstaller from './widgets'
 
-Vue.config.silent = true
+// Vue.config.silent = true
 
-Vue.use(VueCompositionAPI)
 Vue.use(WidgetsInstaller)
 
 new Vue({
   render: (h) => h(App),
-}).$mount('#root')
+}).$mount('#app')

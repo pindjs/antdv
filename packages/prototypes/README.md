@@ -1,9 +1,9 @@
-# @formily/antdv-prototypes
+# @shebao/antdv-prototypes
 
 > Formily Designable Component Adaptor
 
 ## Install
 
 ```bash
-npm install @formily/antdv-prototypes --save
+npm install @shebao/antdv-prototypes --save
 ```
