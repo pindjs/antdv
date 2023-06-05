@@ -7,9 +7,10 @@ export type CreateContext<T> = {
   injectKey: InjectionKey<Ref<T>>
 }
 
-export const createContext = <T>(defaultValue?: T): CreateContext<T> => {
-  const injectKey: InjectionKey<Ref<T>> = Symbol()
-
+export const createProvide = <T>(
+  injectKey: InjectionKey<Ref<T>>,
+  defaultValue?: T
+): CreateContext<T> => {
   return {
     Provider: defineComponent({
       name: 'ContextProvider',
@@ -38,6 +39,11 @@ export const createContext = <T>(defaultValue?: T): CreateContext<T> => {
     }),
     injectKey,
   }
+}
+
+export const createContext = <T>(defaultValue?: T): CreateContext<T> => {
+  const injectKey: InjectionKey<Ref<T>> = Symbol()
+  return createProvide(injectKey, defaultValue)
 }
 
 export const useContext = <T>(context: CreateContext<T>): Ref<T> => {

@@ -1,12 +1,11 @@
-import { defineComponent } from 'vue'
-import { SlickList, SlickItem } from 'vue-slicksort'
-import { useField, useFieldSchema, RecursionField, h } from '@formily/vue'
-import { observer } from '@formily/reactive-vue'
-import { composeExport, usePrefixCls } from '../__builtins__'
-import { ArrayBase } from '../array-base'
-
 import type { ArrayField } from '@formily/core'
 import type { ISchema } from '@formily/json-schema'
+import { observer } from '@formily/reactive-vue'
+import { RecursionField, h, useField, useFieldSchema } from '@formily/vue'
+import { defineComponent } from 'vue'
+import { SlickItem, SlickList } from 'vue-slicksort'
+import { composeExport, usePrefixCls } from '../__builtins__'
+import { ArrayBase } from '../array-base'
 
 const isAdditionComponent = (schema: ISchema) => {
   return schema['x-component']?.indexOf('Addition') > -1
@@ -165,9 +164,6 @@ const ArrayItemsItem = defineComponent<IArrayItemsItemProps>({
           class: [`${prefixCls}-${props.type || 'card'}`],
           attrs: {
             ...attrs,
-          },
-          on: {
-            change: () => {},
           },
         },
         slots

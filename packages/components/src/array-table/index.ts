@@ -1,26 +1,24 @@
-import { defineComponent, ref, computed } from 'vue'
-import { Table, Pagination, Select, Badge } from 'ant-design-vue'
-import {
-  useField,
-  useFieldSchema,
-  h,
-  Fragment,
-  RecursionField,
-} from '@formily/vue'
+import type { ArrayField, FieldDisplayTypes, GeneralField } from '@formily/core'
+import type { Schema } from '@formily/json-schema'
 import { observer } from '@formily/reactive-vue'
 import { isArr, isBool } from '@formily/shared'
-import { composeExport, usePrefixCls } from '../__builtins__'
-import { ArrayBase } from '../array-base'
-import { Space } from '../space'
-
-import type { VNode } from 'vue'
-import type { Ref } from 'vue'
-import type { GeneralField, FieldDisplayTypes, ArrayField } from '@formily/core'
-import type { Schema } from '@formily/json-schema'
-import type { Table as TableProps } from 'ant-design-vue/types/table/table'
-import type { Column as ColumnProps } from 'ant-design-vue/types/table/column'
+import {
+  Fragment,
+  RecursionField,
+  h,
+  useField,
+  useFieldSchema,
+} from '@formily/vue'
+import { Badge, Pagination, Select, Table } from 'ant-design-vue'
 import type { Pagination as PaginationProps } from 'ant-design-vue/types/pagination'
 import type { Select as SelectProps } from 'ant-design-vue/types/select/select'
+import type { Column as ColumnProps } from 'ant-design-vue/types/table/column'
+import type { Table as TableProps } from 'ant-design-vue/types/table/table'
+import type { Ref, VNode } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
+import { FieldContext, composeExport, usePrefixCls } from '../__builtins__'
+import { ArrayBase } from '../array-base'
+import { Space } from '../space'
 
 interface ObservableColumnSource {
   field: GeneralField
@@ -107,43 +105,55 @@ const useArrayTableColumns = (
   dataSource: any[],
   sources: ObservableColumnSource[]
 ): ColumnProps[] => {
-  return sources.reduce((buf, { name, columnProps, schema, display }, key) => {
-    if (display !== 'visible') return buf
-    if (!isColumnComponent(schema)) return buf
-    return buf.concat({
-      ...columnProps,
-      key,
-      dataIndex: name,
-      customRender: (value: any, record: any) => {
-        const index = dataSource.indexOf(record)
-        const children = h(
-          ArrayBase.Item,
-          {
-            key: `${key}${index}`,
-            props: {
-              index,
-              record,
+  return sources.reduce(
+    (buf, { name, columnProps, schema, display, field }, key) => {
+      if (display !== 'visible') return buf
+      if (!isColumnComponent(schema)) return buf
+      return buf.concat({
+        ...columnProps,
+        key,
+        dataIndex: name,
+        customRender: (value: any, record: any) => {
+          const index = dataSource.indexOf(record)
+          const children = h(
+            ArrayBase.Item,
+            {
+              key: `${key}${index}`,
+              props: {
+                index,
+                record,
+              },
             },
-          },
-          {
-            default: () =>
-              h(
-                RecursionField,
-                {
-                  props: {
-                    schema,
-                    name: index,
-                    onlyRenderProperties: true,
+            {
+              default: () =>
+                h(
+                  FieldContext.Provider,
+                  {
+                    value: field,
                   },
-                },
-                {}
-              ),
-          }
-        )
-        return children
-      },
-    })
-  }, [])
+                  {
+                    default: () =>
+                      h(
+                        RecursionField,
+                        {
+                          props: {
+                            schema,
+                            name: index,
+                            onlyRenderProperties: true,
+                          },
+                        },
+                        {}
+                      ),
+                  }
+                ),
+            }
+          )
+          return children
+        },
+      })
+    },
+    []
+  )
 }
 
 const useAddition = () => {

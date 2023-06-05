@@ -48,25 +48,25 @@ export const Form = defineComponent({
           {
             default: () => [
               h(
-                FormLayout,
+                component,
                 {
-                  attrs: {
-                    ...attrs,
+                  on: {
+                    submit: (e: Event) => {
+                      e?.stopPropagation?.()
+                      e?.preventDefault?.()
+                      form
+                        .submit(onAutoSubmit as (e: any) => void)
+                        .catch(onAutoSubmitFailed as (e: any) => void)
+                    },
                   },
                 },
                 {
                   default: () => [
                     h(
-                      component,
+                      FormLayout,
                       {
-                        on: {
-                          submit: (e: Event) => {
-                            e?.stopPropagation?.()
-                            e?.preventDefault?.()
-                            form
-                              .submit(onAutoSubmit as (e: any) => void)
-                              .catch(onAutoSubmitFailed as (e: any) => void)
-                          },
+                        attrs: {
+                          ...attrs,
                         },
                       },
                       slots
