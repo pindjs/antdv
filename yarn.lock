@@ -17029,6 +17029,11 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vite-plugin-antdv-fix@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmmirror.com/vite-plugin-antdv-fix/-/vite-plugin-antdv-fix-1.0.3.tgz#f667e1ec98dab4ce5b53dfe31d83e700330dc234"
+  integrity sha512-R82up3NRrlif606twiQZF53LkMo+AjOOuJ/S9AbW0ZXFoYNkZ440OcQUsuDXH7ljkcbEOr1ucTfd+OtzS9SyXw==
+
 vite@^4.3.5:
   version "4.3.9"
   resolved "https://registry.npmmirror.com/vite/-/vite-4.3.9.tgz#db896200c0b1aa13b37cdc35c9e99ee2fdd5f96d"

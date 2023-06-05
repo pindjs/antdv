@@ -123,7 +123,12 @@ export const FormTab = composeExport(
             )
           }
           return (
-            <div attrs={nodeId}>
+            <div
+              {...{
+                attrs: nodeId,
+              }}
+              class=""
+            >
               {renderTabs()}
               <LoadTemplate
                 actions={[

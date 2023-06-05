@@ -1,7 +1,7 @@
+import type { TreeNode } from '@designable/core'
 import { computed } from 'vue'
 import { useDesigner } from './useDesigner'
 import { useTreeNode } from './useTreeNode'
-import type { TreeNode } from '@designable/core'
 
 export const useNodeIdProps = (node?: TreeNode) => {
   const targetRef = useTreeNode()

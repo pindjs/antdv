@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue2-jsx'
 import fs from 'fs-extra'
 import { GlobSync } from 'glob'
 import { defineConfig } from 'vite'
+import antdvFix from 'vite-plugin-antdv-fix'
 
 const getWorkspaceAlias = () => {
   const basePath = resolve(__dirname, '../../')
@@ -30,7 +31,7 @@ const getWorkspaceAlias = () => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [vue(), vueJsx(), antdvFix()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

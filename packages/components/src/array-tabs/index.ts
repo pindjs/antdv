@@ -1,15 +1,28 @@
-import { defineComponent, ref } from 'vue'
-import { Tabs, Badge } from 'ant-design-vue'
+import type { ArrayField } from '@formily/core'
 import { observer } from '@formily/reactive-vue'
-import { h, useField, useFieldSchema, RecursionField } from '@formily/vue'
+import { isFn } from '@formily/shared'
+import { RecursionField, h, useField, useFieldSchema } from '@formily/vue'
+import { Badge, Tabs } from 'ant-design-vue'
+import type { Tabs as TabsProps } from 'ant-design-vue/types/tabs/tabs'
+import type { PropType } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 import { usePrefixCls } from '../__builtins__'
 
-import type { ArrayField } from '@formily/core'
-import type { Tabs as TabsProps } from 'ant-design-vue/types/tabs/tabs'
-
 export const ArrayTabs = observer(
-  defineComponent<TabsProps>({
+  defineComponent<
+    TabsProps & {
+      renderTitle?: (record: any, records: any[], index: number) => any
+    }
+  >({
     name: 'ArrayTabs',
+    props: {
+      activeKey: {
+        type: String,
+      },
+      renderTitle: {
+        type: Function as PropType<() => any>,
+      },
+    },
     setup(props, { attrs, listeners }) {
       const fieldRef = useField<ArrayField>()
       const schemaRef = useFieldSchema()
@@ -19,6 +32,18 @@ export const ArrayTabs = observer(
         attrs.prefixCls as string
       )
       const activeKey = ref('tab-0')
+
+      watch(
+        () => props.activeKey,
+        (val) => {
+          if (val) {
+            activeKey.value = val
+          }
+        },
+        {
+          immediate: true,
+        }
+      )
 
       return () => {
         const field = fieldRef.value
@@ -45,7 +70,10 @@ export const ArrayTabs = observer(
         }
 
         const badgedTab = (index: number) => {
-          const tab = `${field.title || 'Untitled'} ${index + 1}`
+          const renderTitle = props.renderTitle
+          const tab = isFn(renderTitle)
+            ? renderTitle(dataSource[index], dataSource, index)
+            : `${field.title || 'Untitled'} ${index + 1}`
           const path = field.address.concat(index)
           const errors = field.form.queryFeedbacks({
             type: 'error',
@@ -104,7 +132,7 @@ export const ArrayTabs = observer(
           Tabs,
           {
             props: {
-              ...props,
+              ...attrs,
               activeKey: activeKey.value,
               type: 'editable-card',
             },

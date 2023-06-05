@@ -65,6 +65,7 @@
     "@vitejs/plugin-vue2": "^2.2.0",
     "fs-extra": "^11.1.0",
     "less": "^4.1.2",
-    "@types/fs-extra": "^9.0.13"
+    "@types/fs-extra": "^9.0.13",
+    "vite-plugin-antdv-fix": "^1.0.3"
   }
 }

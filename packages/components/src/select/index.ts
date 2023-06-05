@@ -9,12 +9,18 @@ export const Select = connect(
       dataSource: 'options',
       loading: true,
     },
-    (props, field) => {
-      return {
-        ...props,
-        loading:
-          field?.['loading'] || field?.['validating'] ? true : props.loading,
+    ({ useNull, ...props }, field) => {
+      let value = props.value
+      if (!useNull && value === null) {
+        value = undefined
       }
+      if (props.use)
+        return {
+          ...props,
+          loading:
+            field?.['loading'] || field?.['validating'] ? true : props.loading,
+          value,
+        }
     }
   ),
   mapReadPretty(PreviewText.Select)
