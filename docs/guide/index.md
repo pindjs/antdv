@@ -62,7 +62,7 @@
 
 ```bash
 $ npm install --save ant-design-vue
-$ npm install --save @formily/core @formily/vue @vue/composition-api @shebao/antdv
+$ npm install --save @formily/core @formily/vue @shebao/antdv
 ```
 
 ## 按需打包

@@ -1,24 +1,23 @@
-import { defineComponent } from 'vue'
-import { Button, Modal } from 'ant-design-vue'
-import { Portal, PortalTarget } from 'portal-vue'
+import type { Form, IFormProps } from '@formily/core'
 import { createForm } from '@formily/core'
 import { toJS } from '@formily/reactive'
-import { FormProvider, h, Fragment } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { isNum, isStr, isBool, isFn, applyMiddleware } from '@formily/shared'
+import type { IMiddleware } from '@formily/shared'
+import { applyMiddleware, isBool, isFn, isNum, isStr } from '@formily/shared'
+import { FormProvider, Fragment, h } from '@formily/vue'
+import { Button, Modal } from 'ant-design-vue'
+import type { Modal as ModalProps } from 'ant-design-vue/types/modal'
+import { Portal, PortalTarget } from 'portal-vue'
+import type { Component, VNode } from 'vue'
+import { defineComponent, ref } from 'vue'
 import {
-  isValidElement,
-  resolveComponent,
   createPortalProvider,
-  getProtalContext,
+  getPortalContext,
+  isValidElement,
   loading,
+  resolveComponent,
   usePrefixCls,
 } from '../__builtins__'
-
-import type { Component, VNode } from 'vue'
-import type { Form, IFormProps } from '@formily/core'
-import type { IMiddleware } from '@formily/shared'
-import type { Modal as ModalProps } from 'ant-design-vue/types/modal'
 
 const PORTAL_TARGET_NAME = 'FormDialogFooter'
 
@@ -133,126 +132,127 @@ export function FormDialog(
       const ComponentConstructor = observer(
         defineComponent({
           props: ['dialogProps'],
-          data() {
-            return {
-              visible: false,
-            }
-          },
-          render() {
-            const {
-              onOk,
-              onCancel,
-              title,
-              footer,
-              okText = '确定',
-              okType = 'primary',
-              okButtonProps,
-              cancelButtonProps,
-              cancelText = '取消',
-              ...dialogProps
-            } = this.dialogProps
-            return h(
-              Modal,
-              {
-                class: prefixCls,
-                props: {
-                  ...dialogProps,
-                  visible: this.visible,
-                },
-                on: {
-                  'update:visible': (val) => {
-                    this.visible = val
+          setup(props) {
+            const visibleRef = ref(false)
+            return () => {
+              const {
+                onOk,
+                onCancel,
+                title,
+                footer,
+                okText = '确定',
+                okType = 'primary',
+                okButtonProps,
+                cancelButtonProps,
+                cancelText = '取消',
+                ...dialogProps
+              } = props.dialogProps
+              return h(
+                Modal,
+                {
+                  class: prefixCls,
+                  props: {
+                    ...dialogProps,
+                    visible: visibleRef.value,
                   },
-                  cancel: (e) => {
-                    if (onCancel?.(e) !== false) {
-                      reject?.()
-                    }
-                  },
-                  ok: (e) => {
-                    if (onOk?.(e) !== false) {
-                      resolve?.()
-                    }
-                  },
-                },
-              },
-              {
-                default: () =>
-                  h(
-                    FormProvider,
-                    {
-                      props: {
-                        form: env.form,
-                      },
+                  on: {
+                    'update:visible': (val) => {
+                      visibleRef.value = val
                     },
-                    {
-                      default: () => [h(DialogContent, {}, {})],
-                    }
-                  ),
-                title: () =>
-                  h(Fragment, {}, { default: () => resolveComponent(title) }),
-                footer: () =>
-                  h(
-                    Fragment,
-                    {},
-                    {
-                      default: () => {
-                        const FooterProtalTarget = h(
-                          PortalTarget,
-                          {
-                            props: {
-                              name: PORTAL_TARGET_NAME,
-                              slim: true,
-                            },
-                          },
-                          {}
-                        )
-                        if (footer === null) {
-                          return [null, FooterProtalTarget]
-                        } else if (footer) {
-                          return [resolveComponent(footer), FooterProtalTarget]
-                        }
-                        return [
-                          h(
-                            Button,
-                            {
-                              attrs: cancelButtonProps,
-                              on: {
-                                click: (e) => {
-                                  onCancel?.(e)
-                                  reject()
-                                },
-                              },
-                            },
-                            {
-                              default: () => resolveComponent(cancelText),
-                            }
-                          ),
-                          h(
-                            Button,
-                            {
-                              attrs: {
-                                ...okButtonProps,
-                                type: okType,
-                                loading: env.form.submitting,
-                              },
-                              on: {
-                                click: (e) => {
-                                  onOk?.(e)
-                                  resolve()
-                                },
-                              },
-                            },
-                            {
-                              default: () => resolveComponent(okText),
-                            }
-                          ),
-                          FooterProtalTarget,
-                        ]
+                    cancel: (e) => {
+                      if (onCancel?.(e) !== false) {
+                        reject?.()
+                      }
+                    },
+                    ok: (e) => {
+                      if (onOk?.(e) !== false) {
+                        resolve?.()
+                      }
+                    },
+                  },
+                },
+                {
+                  default: () =>
+                    h(
+                      FormProvider,
+                      {
+                        props: {
+                          form: env.form,
+                        },
                       },
-                    }
-                  ),
-              }
-            )
+                      {
+                        default: () => [h(DialogContent, {}, {})],
+                      }
+                    ),
+                  title: () =>
+                    h(Fragment, {}, { default: () => resolveComponent(title) }),
+                  footer: () =>
+                    h(
+                      Fragment,
+                      {},
+                      {
+                        default: () => {
+                          const FooterPortalTarget = h(
+                            PortalTarget,
+                            {
+                              props: {
+                                name: PORTAL_TARGET_NAME,
+                                slim: true,
+                              },
+                            },
+                            {}
+                          )
+                          if (footer === null) {
+                            return [null, FooterPortalTarget]
+                          } else if (footer) {
+                            return [
+                              resolveComponent(footer),
+                              FooterPortalTarget,
+                            ]
+                          }
+                          return [
+                            h(
+                              Button,
+                              {
+                                attrs: cancelButtonProps,
+                                on: {
+                                  click: (e) => {
+                                    onCancel?.(e)
+                                    reject()
+                                  },
+                                },
+                              },
+                              {
+                                default: () => resolveComponent(cancelText),
+                              }
+                            ),
+                            h(
+                              Button,
+                              {
+                                attrs: {
+                                  ...okButtonProps,
+                                  type: okType,
+                                  loading: env.form.submitting,
+                                },
+                                on: {
+                                  click: (e) => {
+                                    onOk?.(e)
+                                    resolve()
+                                  },
+                                },
+                              },
+                              {
+                                default: () => resolveComponent(okText),
+                              }
+                            ),
+                            FooterPortalTarget,
+                          ]
+                        },
+                      }
+                    ),
+                }
+              )
+            }
           },
         })
       )
@@ -260,7 +260,7 @@ export function FormDialog(
         propsData: {
           dialogProps,
         },
-        parent: getProtalContext(id as string | symbol),
+        parent: getPortalContext(id as string | symbol),
       })
       env.instance.$mount(env.root)
     }

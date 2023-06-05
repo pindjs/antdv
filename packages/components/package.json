@@ -36,13 +36,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.4.0",
-    "vue": "^2.6.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
+    "vue": "^2.7.0"
   },
   "dependencies": {
     "@formily/core": "^2.0.8",
