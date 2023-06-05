@@ -1,15 +1,14 @@
-import { defineComponent, provide, ref, toRef } from 'vue'
-import { GlobalRegistry } from '@designable/core'
-import { FragmentComponent as Fragment } from '@formily/vue'
-import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@shebao/antdv/esm/__builtins__'
-import { useTree, usePrefix, useDesigner, useComponents } from '../../hooks'
-import { TreeNodeSymbol, DesignerComponentsSymbol } from '../../context'
-import './styles.less'
-
-import type { PropType } from 'vue'
 import type { TreeNode } from '@designable/core'
+import { GlobalRegistry } from '@designable/core'
+import { observer } from '@formily/reactive-vue'
+import { FragmentComponent as Fragment } from '@formily/vue'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import type { PropType } from 'vue'
+import { defineComponent, provide, ref, toRef } from 'vue'
+import { DesignerComponentsSymbol, TreeNodeSymbol } from '../../context'
+import { useComponents, useDesigner, usePrefix, useTree } from '../../hooks'
 import type { IDesignerComponents } from '../../types'
+import './styles.less'
 
 export interface IComponentTreeWidgetProps {
   components: IDesignerComponents
@@ -98,7 +97,7 @@ export const ComponentTreeWidgetComponent = observer(
       }
       return () => {
         return (
-          <div class={prefixRef.value} attrs={{ ...dataId }}>
+          <div class={prefixRef.value} {...{ attrs: dataId }}>
             <TreeNodeWidget node={treeRef.value} />
           </div>
         )

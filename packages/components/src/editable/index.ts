@@ -1,15 +1,14 @@
-import { defineComponent, ref, onBeforeUnmount, computed } from 'vue'
-import { Popover as AntdPopover, Icon } from 'ant-design-vue'
+import type { Field } from '@formily/core'
 import { isVoidField } from '@formily/core'
 import { reaction } from '@formily/reactive'
-import { h, useField } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { composeExport, usePrefixCls } from '../__builtins__'
-import { FormBaseItem } from '../form-item'
-
-import type { FormItemProps } from '../form-item'
-import type { Field } from '@formily/core'
+import { h, useField } from '@formily/vue'
+import { Popover as AntdPopover, Icon } from 'ant-design-vue'
 import type { Popover as PopoverProps } from 'ant-design-vue/types/popover'
+import { computed, defineComponent, onBeforeUnmount, ref } from 'vue'
+import { composeExport, usePrefixCls } from '../__builtins__'
+import type { FormItemProps } from '../form-item'
+import { FormBaseItem } from '../form-item'
 
 type IPopoverProps = PopoverProps
 export type EditableProps = FormItemProps
@@ -38,7 +37,6 @@ const useFormItemProps = (fieldRef): FormItemProps => {
 }
 
 const EditableInner = observer(
-  // eslint-disable-next-line vue/one-component-per-file
   defineComponent<EditableProps>({
     name: 'Editable',
     setup(props, { attrs, slots }) {
@@ -222,7 +220,7 @@ const EditablePopover = observer(
               visible: visible.value,
               trigger: 'click',
             },
-            arrrs: {
+            attrs: {
               ...attrs,
             },
             on: {

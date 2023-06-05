@@ -110,13 +110,13 @@ const FormGridInner = observer(
         return markRaw(options?.grid ? options.grid : new Grid(options))
       })
       const prefixCls = usePrefixCls('formily-form-grid')
-      const root = ref(null)
+      const rootRef = ref(null)
 
       provide(FormGridSymbol, gridInstance)
 
       onMounted(() => {
         watchEffect((onInvalidate) => {
-          const dispose = gridInstance.value.connect(root.value)
+          const dispose = gridInstance.value.connect(rootRef.value)
           onInvalidate(() => {
             dispose()
           })
@@ -134,7 +134,7 @@ const FormGridInner = observer(
               gridTemplateColumns: gridInstance.value.templateColumns,
               gap: gridInstance.value.gap,
             },
-            ref: 'root',
+            ref: rootRef,
           },
           {
             default: () => slots.default?.(),

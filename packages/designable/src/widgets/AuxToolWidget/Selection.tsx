@@ -1,22 +1,21 @@
-import { defineComponent } from 'vue'
-import { FragmentComponent as Fragment } from '@formily/vue'
-import { observer } from '@formily/reactive-vue'
-import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import type { TreeNode } from '@designable/core'
 import { isNum } from '@designable/shared'
+import { observer } from '@formily/reactive-vue'
+import { FragmentComponent as Fragment } from '@formily/vue'
+import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { defineComponent } from 'vue'
 import {
-  useDesigner,
-  useSelection,
-  useValidNodeOffsetRect,
-  useTree,
   useCursor,
+  useDesigner,
   useDragon,
   usePrefix,
+  useSelection,
+  useTree,
+  useValidNodeOffsetRect,
 } from '../../hooks'
+import { Helpers } from './Helpers'
 import { ResizeHandler } from './ResizeHandler'
 import { TranslateHandler } from './TranslateHandler'
-import { Helpers } from './Helpers'
-
-import type { TreeNode } from '@designable/core'
 
 export interface ISelectionBoxProps {
   node: TreeNode
@@ -62,7 +61,9 @@ export const SelectionBox = defineComponent({
       }
       return (
         <div
-          attrs={selectionId}
+          {...{
+            attrs: selectionId,
+          }}
           class={prefixRef.value}
           style={createSelectionStyle()}
         >
