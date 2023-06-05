@@ -1,25 +1,23 @@
 // import React, { Fragment, useState } from 'react'
+import { createBehavior, createResource, TreeNode } from '@designable/core'
+import { uid } from '@designable/shared'
 import { observer } from '@formily/reactive-vue'
-import { Tabs } from 'ant-design-vue'
-import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
-  useNodeIdProps,
-  useTreeNode,
-  TreeNodeWidget,
   DroppableWidget,
+  TreeNodeWidget,
+  useNodeIdProps,
   useSelection,
+  useTreeNode,
 } from '@shebao/antdv-designable'
 import { composeExport } from '@shebao/antdv/esm/__builtins__'
+import { Tabs } from 'ant-design-vue'
 import { defineComponent, ref } from 'vue'
-import { uid } from '@designable/shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { useDropTemplate } from '../../hooks'
-import { createVoidFieldSchema } from '../Field'
-import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
+import { AllSchemas } from '../../schemas'
 import { matchComponent } from '../../shared'
-import type { VueComponent } from '@formily/vue'
-import type { DnFC } from '@shebao/antdv-designable'
+import { createVoidFieldSchema } from '../Field'
 // import type { Tabs as TabsProps } from 'ant-design-vue'
 
 const parseTabs = (parent: TreeNode) => {
@@ -40,9 +38,7 @@ const getCorrectActiveKey = (activeKey: string, tabs: TreeNode[]) => {
 //  {
 //   TabPane?: VueComponent<TabPaneProps>
 // }
-export const FormTab: DnFC<VueComponent> & {
-  TabPane?: VueComponent
-} = composeExport(
+export const FormTab = composeExport(
   observer(
     defineComponent({
       setup(props, { attrs }) {
@@ -100,10 +96,10 @@ export const FormTab: DnFC<VueComponent> & {
                       scopedSlots={{
                         tab: () => (
                           <span
-                            data-content-editable="x-component-props.label"
+                            data-content-editable="x-component-props.tab"
                             data-content-editable-node-id={tab.id}
                           >
-                            {props.label}
+                            {props.tab}
                           </span>
                         ),
                       }}
@@ -141,7 +137,7 @@ export const FormTab: DnFC<VueComponent> & {
                           type: 'void',
                           'x-component': 'FormTab.TabPane',
                           'x-component-props': {
-                            label: `Unnamed Title`,
+                            tab: `Unnamed Title`,
                           },
                         },
                       })

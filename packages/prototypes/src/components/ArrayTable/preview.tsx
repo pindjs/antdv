@@ -234,7 +234,12 @@ export const ArrayTable = composeExport(
             )
           }
           return (
-            <div attrs={nodeId} class="dn-array-table">
+            <div
+              {...{
+                attrs: nodeId,
+              }}
+              class="dn-array-table"
+            >
               {renderTable()}
               <LoadTemplate
                 actions={[

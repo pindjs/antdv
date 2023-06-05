@@ -1,20 +1,11 @@
-import {
-  ref,
-  defineComponent,
-  onMounted,
-  onBeforeUnmount,
-  watch,
-  provide,
-} from 'vue'
-import { Tooltip, Popover, Icon } from 'ant-design-vue'
-import ResizeObserver from 'resize-observer-polyfill'
 import { isVoidField } from '@formily/core'
-import { connect, mapProps, h } from '@formily/vue'
+import { connect, h, mapProps } from '@formily/vue'
+import { Icon, Popover, Tooltip } from 'ant-design-vue'
+import ResizeObserver from 'resize-observer-polyfill'
+import type { Component, Ref } from 'vue'
+import { defineComponent, onBeforeUnmount, provide, ref, watch } from 'vue'
+import { FormLayoutShallowContext, useFormLayout } from '../form-layout'
 import { composeExport, resolveComponent, usePrefixCls } from '../__builtins__'
-import { useFormLayout, FormLayoutShallowContext } from '../form-layout'
-
-import type { Component } from 'vue'
-import type { Ref } from 'vue'
 
 export type FormItemProps = {
   className?: string
@@ -59,7 +50,7 @@ const useOverflow = (containerRef: Ref<HTMLElement>) => {
   let resizeObserver: ResizeObserver | undefined
 
   const cleanup = () => {
-    if (resizeObserver) {
+    if (resizeObserver && containerRef.value) {
       resizeObserver.unobserve(containerRef.value)
       resizeObserver = null
     }
@@ -67,6 +58,7 @@ const useOverflow = (containerRef: Ref<HTMLElement>) => {
 
   const observer = () => {
     const container = containerRef.value
+    if (!container) return
     const content = container.querySelector('label')
     const containerWidth = container.getBoundingClientRect().width
     const contentWidth = content?.getBoundingClientRect().width

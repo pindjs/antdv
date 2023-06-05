@@ -133,7 +133,10 @@ export const App = defineComponent({
               }}
             >
               <CompositePanel>
-                <CompositePanel.Item title="panels.Component" icon="Component">
+                <CompositePanel.Item
+                  title="panels.Component"
+                  icon="VueComponent"
+                >
                   <ResourceWidget
                     title="sources.Inputs"
                     sources={sources.Inputs}

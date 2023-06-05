@@ -63,7 +63,7 @@ export const Viewport = defineComponent({
     return () => {
       return (
         <div
-          ref="container"
+          ref={containerRef}
           {...{
             attrs,
           }}

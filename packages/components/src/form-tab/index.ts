@@ -3,15 +3,15 @@ import { model } from '@formily/reactive'
 import { observer } from '@formily/reactive-vue'
 import {
   Fragment,
-  RecursionField,
   h,
+  RecursionField,
   useField,
   useFieldSchema,
 } from '@formily/vue'
 import { Badge, Tabs } from 'ant-design-vue'
 import type { TabPane as TabPaneProps } from 'ant-design-vue/types/tabs/tab-pane'
 import type { Tabs as TabsProps } from 'ant-design-vue/types/tabs/tabs'
-import { computed, defineComponent, reactive } from 'vue'
+import { computed, defineComponent, reactive, watchEffect } from 'vue'
 import { composeExport, evalListener, usePrefixCls } from '../__builtins__'
 
 const { TabPane } = Tabs
@@ -30,22 +30,26 @@ export interface IFormTabPaneProps extends TabPaneProps {
 }
 
 const useTabs = () => {
-  const tabsField = useField().value
-  const schema = useFieldSchema().value
+  const tabsFieldRef = useField()
+  const schemaRef = useFieldSchema()
   const tabs: { name: SchemaKey; props: any; schema: Schema }[] = reactive([])
-  schema.mapProperties((schema, name) => {
-    const field = tabsField.query(tabsField.address.concat(name)).take()
-    if (field?.display === 'none' || field?.display === 'hidden') return
-    if (schema['x-component']?.indexOf('TabPane') > -1) {
-      tabs.push({
-        name,
-        props: {
-          key: schema?.['x-component-props']?.key || name,
-          ...schema?.['x-component-props'],
-        },
-        schema,
-      })
-    }
+  watchEffect(() => {
+    schemaRef.value.mapProperties((schema, name) => {
+      const field = tabsFieldRef.value
+        .query(tabsFieldRef.value.address.concat(name))
+        .take()
+      if (field?.display === 'none' || field?.display === 'hidden') return
+      if (schema['x-component']?.indexOf('TabPane') > -1) {
+        tabs.push({
+          name,
+          props: {
+            key: schema?.['x-component-props']?.key || name,
+            ...schema?.['x-component-props'],
+          },
+          schema,
+        })
+      }
+    })
   })
   return tabs
 }
@@ -73,10 +77,10 @@ const FormTabInner = observer(
         'formily-form-tab',
         attrs.prefixCls as string
       )
+      const tabs = useTabs()
 
       return () => {
         const formTab = formTabRef.value
-        const tabs = useTabs()
         const activeKey =
           props.activeKey || formTab?.activeKey || tabs?.[0]?.name
         const badgedTab = (key: SchemaKey, props: any) => {
@@ -101,7 +105,7 @@ const FormTabInner = observer(
           return props.tab
         }
 
-        const getTabs = (tabs) => {
+        const getTabs = (tabs: { props: any; schema: any; name: any }[]) => {
           return tabs.map(({ props, schema, name }) => {
             return h(
               TabPane,
@@ -141,7 +145,7 @@ const FormTabInner = observer(
             },
             on: {
               ...listeners,
-              change: (key) => {
+              change: (key: string) => {
                 evalListener(listeners.change, key)
                 formTab.setActiveKey?.(key)
               },

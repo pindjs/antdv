@@ -8,6 +8,7 @@ import WidgetsInstaller from './widgets'
 // Vue.config.silent = true
 
 Vue.use(WidgetsInstaller)
+Vue.config.silent = true
 
 new Vue({
   render: (h) => h(App),

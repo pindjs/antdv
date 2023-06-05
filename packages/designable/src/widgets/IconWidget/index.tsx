@@ -33,6 +33,16 @@ export interface IIconWidgetProps extends HTMLElement {
   size?: number | string
 }
 
+const functional = (render: (props: any) => VNode) => {
+  const Com = defineComponent({
+    functional: true,
+    render(h, props) {
+      return render(props)
+    },
+  })
+  return Com
+}
+
 const IconWidgetInner = observer(
   defineComponent({
     name: 'DnIconWidget',
@@ -72,6 +82,15 @@ const IconWidgetInner = observer(
             return <img src={infer} height={height} width={width} />
           } else if (typeof infer?.render === 'function') {
             const InferIcon = infer
+            return (
+              <InferIcon
+                props={{ height: height, width: width, fill: 'currentColor' }}
+                attrs={{ height: height, width: width, fill: 'currentColor' }}
+                fill="currentColor"
+              ></InferIcon>
+            )
+          } else if (typeof infer === 'function') {
+            const InferIcon = functional(infer)
             return (
               <InferIcon
                 props={{ height: height, width: width, fill: 'currentColor' }}

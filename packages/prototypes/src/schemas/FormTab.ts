@@ -55,7 +55,7 @@ export const FormTab: ISchema & { TabPane?: ISchema } = {
 FormTab.TabPane = {
   type: 'object',
   properties: {
-    label: {
+    tab: {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',

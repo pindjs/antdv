@@ -1,9 +1,8 @@
+import type { WorkbenchTypes } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
 import { defineComponent } from 'vue'
-import { useTree, useWorkbench } from '../hooks'
 import { Viewport } from '../containers'
-
-import type { WorkbenchTypes } from '@designable/core'
+import { useTree, useWorkbench } from '../hooks'
 
 export interface IViewPanelProps {
   type: WorkbenchTypes
